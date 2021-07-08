@@ -1,19 +1,19 @@
-# piscine_CPP
-9 modules with progressives exercises to learn C++
+# Piscine CPP
+9 modules with progressives exercises to learn C++  
 [There is plenty of CPP tutorial videos on the intranet (in french)](https://elearning.intra.42.fr/tags/38/notions)  
 [Great Wiki for the piscine](https://github.com/qingqingqingli/CPP/wiki/)  
 
 
-## 0
+## Module 0
 Print Hello World 5 on stdout:
 ```
 int n = 5;
-cout << "Hello World" << " " << n << endl;
+std::cout << "Hello World" << " " << n << std::endl;
 ```
 Store input values separated by spaces in a, b and c:
 ```
 int a, b, c;
-cin >> a >> b >> c;
+std::cin >> a >> b >> c;
 ```
 Reading Some data, alternative solution:
 ```
@@ -28,7 +28,7 @@ Declare a string table:
 ```
 string c[]={"","one","two","three","four"};
 ```
-Namespaces:
+Namespaces :: the scope resolution operator
 ```
 int gl_var = 1;
 int f(void){return 2;}
@@ -39,4 +39,12 @@ namespace	Foo {
 }
 
 namespace Bar = Foo;
+```
+```
+printf("%d %d %d %d\n", gl_var, ::gl_var, Foo::gl_var, Bar::gl_var);
+printf("%d %d %d\n", f(), Foo::f(), Bar::f());
+```
+Swap: (in this example case, swap the content of 2 strings)
+```
+seller.swap (buyer);
 ```
