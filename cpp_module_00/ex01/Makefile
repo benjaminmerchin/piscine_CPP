@@ -1,7 +1,7 @@
-NAME	=	a.out
+NAME	=	PhoneBook
 CC		=	clang++
 OBJDIR	=	objects
-SRC		=	megaphone.cpp
+SRC		=	main.cpp directory.class.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 CFLAGS	=	-Wall -Wextra -Werror
 
