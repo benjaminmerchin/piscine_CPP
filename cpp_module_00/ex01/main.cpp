@@ -13,11 +13,12 @@ void	search_contact(Directory contact[8], int contact_number)
 		contact[i].Directory::display();
 		std::cout << std::endl;
 	}
+	std::cout << "Which Contact do you want to display completely?" << std::endl;
 	std::cin >> num;
 	if (num < contact_number && num >= 0)
 		contact[num].Directory::display_all();
 	else
-		std::cout << "Wrong Number" << std::endl;
+		std::cout << "Incorrect Number" << std::endl;
 }
 
 int main(void)

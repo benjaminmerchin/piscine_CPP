@@ -1,4 +1,4 @@
-NAME	=	a.out
+NAME	=	megaphone
 CC		=	clang++
 OBJDIR	=	objects
 SRC		=	megaphone.cpp

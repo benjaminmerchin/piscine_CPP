@@ -1,4 +1,4 @@
-NAME	=	a.out
+NAME	=	account
 CC		=	clang++
 OBJDIR	=	objects
 SRC		=	tests.cpp Account.cpp

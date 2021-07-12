@@ -5,4 +5,6 @@ a.out
 */*/*.o
 */*.o
 *.o
+cpp_module_00/ex00/megaphone
 cpp_module_00/ex01/PhoneBook
+cpp_module_00/ex01/account

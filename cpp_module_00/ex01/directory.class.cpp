@@ -26,6 +26,7 @@ void	Directory::add_contact(void) {
 	std::getline(std::cin, this->_phone_number);
 	std::cout << "darkest secret" << std::endl;
 	std::getline(std::cin, this->_darkest_secret);
+	std::cout << "Contact successfully added" << std::endl;
 }
 
 void	Directory::display(void) const{

@@ -170,7 +170,7 @@ private:
 Variables et fonctions d'instance pour les attributs et fonctions membres (propre a l'instance unique)
 Variables et fonctions de classes pour les attributs et fonctions non membres (static) (ne peut pas utiliser this, car pas de transmission d'instance) (commune a toutes les instances)
 int	Sample::getNbInst(void) {
-	return Sample::_nbInst
+	return Sample::_nbInst;
 }
 -->
 Pointers to members:
@@ -192,3 +192,6 @@ int main() {
 	return 0;
 }
 ```
+<!--
+TODO: option to edit token
+-->
