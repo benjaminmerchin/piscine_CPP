@@ -7,11 +7,11 @@ int main(void)
 	std::string data;
 	int	contact_number;
 
+	std::cout << "Welcome to the PhoneBook! Please enter ADD, SEARCH or EXIT" << std::endl;
 	contact_number = 0;
 	while (1)
 	{
 		std::cin >> data;
-		//std::cout << data << std::endl;
 		if (data == "ADD")
 		{
 			if (contact_number == 8)
@@ -19,18 +19,21 @@ int main(void)
 			else
 			{
 				contact_number++;
-				Directory::add_contact(contact[contact_number]);
+				contact[contact_number].add_contact();
 			}
 		}
-		if (data == "SEARCH")
+		else if (data == "SEARCH")
 		{
-			std::cout << "EXIT" << std::endl;
+			std::cout << "Work in progress" << std::endl;
+			//Directory::search_contact();
 		}
-		if (data == "EXIT")
+		else if (data == "EXIT")
 		{
 			std::cout << "EXIT" << std::endl;
 			return (0);
 		}
+		else
+			std::cout << "Unknown Command, please enter ADD, SEARCH or EXIT" << std::endl;
 	}
 	return (0);
 }

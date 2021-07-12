@@ -5,7 +5,8 @@ class Directory {
 public:
 	Directory(void);
 	~Directory(void);
-	void	add_contact(void);
+	void	add_contact();
+	void	search_contact();
 
 private:
 	std::string _first_name;

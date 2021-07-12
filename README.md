@@ -173,4 +173,22 @@ int	Sample::getNbInst(void) {
 	return Sample::_nbInst
 }
 -->
-Pointers to members: look later
+Pointers to members:
+```
+int main() {
+	Sample		instance;
+	Sample *	point_instance = &insrance;
+	int			Sample::*p = NULL;
+	void		(Sample::*f)(void) const;
+
+	p = &Sample::foo; //at this point p has no instance attributed
+	instance.*p = 21; //now it is linked to the instance instance
+	point_instance->*p = 42;
+	std::cout  << instance.foo << std::endl;
+
+	f = &Sample::bar;
+	(instance.*f)();
+	(point_instance->*f)();
+	return 0;
+}
+```
