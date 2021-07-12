@@ -1,6 +1,25 @@
 #include <iostream>
 #include "directory.class.hpp"
 
+void	search_contact(Directory contact[8], int contact_number)
+{
+	std::int16_t num;
+
+	std::cout << "PHONE BOOK CONTACT LIST" << std::endl;
+	std::cout << "     index|first name| last name|  nickname" << std::endl;
+	for (int i = 0; i < 8 && i < contact_number; i++)
+	{
+		std::cout << "         " << i << '|';
+		contact[i].Directory::display();
+		std::cout << std::endl;
+	}
+	std::cin >> num;
+	if (num < contact_number && num >= 0)
+		contact[num].Directory::display_all();
+	else
+		std::cout << "Wrong Number" << std::endl;
+}
+
 int main(void)
 {
 	Directory contact[8];
@@ -18,18 +37,15 @@ int main(void)
 				std::cout << "The PhoneBook if already full sorry" << std::endl;
 			else
 			{
-				contact_number++;
 				contact[contact_number].add_contact();
+				contact_number++;
 			}
 		}
 		else if (data == "SEARCH")
-		{
-			std::cout << "Work in progress" << std::endl;
-			//Directory::search_contact();
-		}
+			search_contact(contact, contact_number);
 		else if (data == "EXIT")
 		{
-			std::cout << "EXIT" << std::endl;
+			std::cout << "Shutting Down PhoneBook" << std::endl;
 			return (0);
 		}
 		else

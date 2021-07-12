@@ -1,9 +1,9 @@
 NAME	=	a.out
 CC		=	clang++
 OBJDIR	=	objects
-SRC		=	*.cpp
+SRC		=	tests.cpp Account.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
-CFLAGS	=	-Wall -Wextra -Werror#-pthread#-g3 -fsanitize=thread
+CFLAGS	=	-Wall -Wextra -Werror
 
 ifneq (,$(findstring xterm,${TERM}))
 	GREEN := $(shell tput -Txterm setaf 2)

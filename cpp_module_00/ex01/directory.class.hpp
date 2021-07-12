@@ -6,7 +6,8 @@ public:
 	Directory(void);
 	~Directory(void);
 	void	add_contact();
-	void	search_contact();
+	void	display() const;
+	void	display_all() const;
 
 private:
 	std::string _first_name;
