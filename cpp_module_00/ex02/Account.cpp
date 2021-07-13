@@ -62,7 +62,7 @@ void	Account::makeDeposit( int deposit ){
 	std::cout << "index:" << Account::_accountIndex;
 	std::cout << ";p_amount:" << Account::_amount;
 	Account::_amount += deposit;
-	std::cout << ";deposits:" << deposit;
+	std::cout << ";deposit:" << deposit;
 	std::cout << ";amount:" << Account::_amount;
 	std::cout << ";nb_deposits:" << Account::_nbDeposits;
 	std::cout << std::endl;
@@ -113,4 +113,6 @@ void	Account::_displayTimestamp( void ){
 		<< std::setw(2) << timePtr->tm_hour
 		<< std::setw(2) << timePtr->tm_min
 		<< std::setw(2) << timePtr->tm_sec << "] ";
+	
+	//std::cout << "[19920104_091532] ";
 }
