@@ -3,7 +3,7 @@ CC		=	clang++
 OBJDIR	=	objects
 SRC		=	main.cpp directory.class.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 ifneq (,$(findstring xterm,${TERM}))
 	GREEN := $(shell tput -Txterm setaf 2)

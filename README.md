@@ -193,5 +193,7 @@ int main() {
 }
 ```
 <!--
-TODO: option to edit token
+OpenClassRooms:
+cin.ignore(); // quand je melange du cin avant du getline
+
 -->

@@ -15,16 +15,15 @@ Directory::~Directory(void) {
 }
 
 void	Directory::add_contact(void) {
+	std::cout << "first name: ";
 	std::getline(std::cin, this->_first_name);
-	std::cout << "first name" << std::endl;
-	std::getline(std::cin, this->_first_name);
-	std::cout << "last name" << std::endl;
+	std::cout << "last name: ";
 	std::getline(std::cin, this->_last_name);
-	std::cout << "nickname" << std::endl;
+	std::cout << "nickname: ";
 	std::getline(std::cin, this->_nickname);
-	std::cout << "phone number" << std::endl;
+	std::cout << "phone number: ";
 	std::getline(std::cin, this->_phone_number);
-	std::cout << "darkest secret" << std::endl;
+	std::cout << "darkest secret: ";
 	std::getline(std::cin, this->_darkest_secret);
 	std::cout << "Contact successfully added" << std::endl;
 }

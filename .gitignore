@@ -7,4 +7,5 @@ a.out
 *.o
 cpp_module_00/ex00/megaphone
 cpp_module_00/ex01/PhoneBook
-cpp_module_00/ex01/account
+cpp_module_00/ex02/account
+.vscode
