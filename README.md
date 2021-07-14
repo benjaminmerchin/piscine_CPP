@@ -192,6 +192,127 @@ int main() {
 	return 0;
 }
 ```
+## Module 1
+Allocate memory
+```
+int main()
+{
+	Student		bob = Student("bmerchin"); //call constructor to use it correctly
+	Student*	jim = new Student("stonks");
+	Car*		car1 = new Car[42]; //new array doesn't take parameters
+
+	delete jim; // jim destroyed
+	delete [] car1;
+	return (0); // bob destroyed
+}
+```
+References : Alias to existing variables
+Constant pointer always dereferenced and never null
+Impossible to create uninitialized references
+```
+void byRef(std::string& str) {
+	str += " and ponies";
+}
+void byConstRef(std::string const & str) {
+	std::cout << str << std::endl;
+}
+int main() {
+	std::string		str = "i like otters";
+	std::string&	strRef = str; //we can use strRef as str
+
+	byRef(str);
+	byConstRef(str);
+	return (0);
+}
+```
+```
+#include <iostream>
+#include <string>
+
+class Student
+{
+	private:
+		std::string _login;
+
+	public:
+		Student(std::string const & login) : _login(login)
+		{
+		}
+
+		std::string&	getLoginRef()
+		{
+			return this->_login;
+		}
+
+		std::string const & getLoginRefConst() const
+		{
+			return this->_login;
+		}
+
+		std::string*	getLoginPtr()
+		{
+			return &(this->_login);
+		}
+
+		std::string const * getLoginPtrConst() const
+		{
+			return &(this->_login);
+		}
+};
+
+int main()
+{
+	Student 	bob = Student("bfubar");
+	Student const jim = Student("jfubar");
+
+	// use a const function on a non-const variable is not a problem
+	std::cout << bob.getLoginRefConst() << " " << jim.getLoginRefConst() << std::endl;
+	std::cout << *(bob.getLoginPtrConst()) << " " << *(jim.getLoginPtrConst()) << std::endl;
+
+	bob.getLoginRef() = "bobfubar";
+	std::cout << bob.getLoginRefConst() << std::endl;
+
+	*(bob.getLoginPtr()) = "bobbyfubar";
+	std::cout << bob.getLoginRefConst() << std::endl;
+
+	return (0);
+}
+```
+Filestream
+```
+#include <iostream>
+#include <fstream>
+
+int main()
+{
+	//ifstream: input file stream
+	std::ifstream	ifs("numbers");
+	unsigned int	dst;
+	unsigned int	dst2;
+	ifs >> dst >> dst2;
+
+	std::cout << dst << " " << dst2 << std::endl;
+	ifs.close();
+
+	//-------------------------
+	//ofstream: output file stream
+	std::ofstream	ofs("test.out");
+	ofs << "i like ponies a whole damn lot" << std::endl;
+	ofs.close();
+	return (0);
+}
+```
+
+
+
+
+
+
+
+
+
+
+
 <!--
 OpenClassRooms:
 cin.ignore(); // quand je melange du cin avant du getline

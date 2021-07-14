@@ -24,6 +24,11 @@ void	searchContact(Directory contact[8], int contact_number)
 	}
 	std::cout << "Which Contact do you want to display completely?" << std::endl;
 	std::getline(std::cin, data);
+	if (data[1] != '\0')
+	{
+		std::cout << "Incorrect Number" << std::endl;
+		return ;
+	}
 	num = std::stoi(data);
 	if (num < contact_number && num >= 0)
 		contact[num].Directory::display_all();
