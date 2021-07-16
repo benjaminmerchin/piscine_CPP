@@ -1,7 +1,7 @@
-NAME	=	zombie
+NAME	=	program
 CC		=	clang++
 OBJDIR	=	objects
-SRC		=	main.cpp Weapon.cpp Weapon.hpp HumanA.cpp HumanA.hpp HumanB.cpp HumanB.hpp
+SRC		=	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g3
 
