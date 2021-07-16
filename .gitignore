@@ -8,5 +8,5 @@ a.out
 cpp_module_00/ex00/megaphone
 cpp_module_00/ex01/PhoneBook
 cpp_module_00/ex02/account
-cpp_module_01/ex00/zombie
+cpp_module_01/*/zombie
 .vscode

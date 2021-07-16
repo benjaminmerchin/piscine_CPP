@@ -1,9 +1,9 @@
 NAME	=	zombie
 CC		=	clang++
 OBJDIR	=	objects
-SRC		=	main.cpp
+SRC		=	main.cpp Zombie.cpp ZombieHorde.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g3
 
 ifneq (,$(findstring xterm,${TERM}))
 	GREEN := $(shell tput -Txterm setaf 2)
