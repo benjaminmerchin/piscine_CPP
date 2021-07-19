@@ -1,14 +1,11 @@
 #include "Weapon.hpp"
 
 void	Weapon::setType(std::string name) {
-	std::cout << "(" << name << ")"; //
-	Weapon::_name = name;
-	std::cout << "(" << Weapon::_name << ")"; //
+	_name = name;
 }
 
 const std::string& Weapon::getType( void ) {
-	std::string& ret = Weapon::_name;
-	return ret;
+	return _name;
 }
 
 Weapon::Weapon(std::string name) : _name(name) {
