@@ -1,21 +1,14 @@
 #include "Weapon.hpp"
 
+Weapon::Weapon(std::string name) : _weapon_name(name) {
+	return ;
+}
+
+std::string& Weapon::getType(void) {
+	//std::cout << _weapon_name << std::endl;
+	return _weapon_name;
+}
+
 void	Weapon::setType(std::string name) {
-	_name = name;
-}
-
-const std::string& Weapon::getType( void ) {
-	return _name;
-}
-
-Weapon::Weapon(std::string name) : _name(name) {
-	return ;
-}
-
-Weapon::~Weapon(void) {
-	return ;
-}
-
-Weapon::Weapon(void) {
-	return ;
+	_weapon_name = name;
 }
