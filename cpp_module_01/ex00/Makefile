@@ -1,7 +1,7 @@
 NAME	=	zombie
 CC		=	clang++
 OBJDIR	=	objects
-SRC		=	main.cpp
+SRC		=	main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
