@@ -13,4 +13,5 @@ cpp_module_01/*/program
 cpp_module_01/*/replace
 cpp_module_01/*/*.replace
 cpp_module_01/*/Karen
+cpp_module_01/*/karenFilter
 .vscode
