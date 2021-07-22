@@ -2,6 +2,7 @@
 # define ZOMBIE_HPP
 
 # include <iostream>
+# include <maths.h>
 
 class Zombie {
 public:

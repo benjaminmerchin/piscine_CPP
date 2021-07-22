@@ -63,7 +63,7 @@ int main(int ac, char **av)
 			content += "\n";
 	}
 	content = search_and_replace(content, s1, s2);
-	std::ofstream ofs(output_name);
+	std::ofstream ofs(output_name.c_str());
 	ofs << content;
 	return (0);
 }

@@ -303,18 +303,9 @@ int main()
 }
 ```
 
+## Module 2
 
+Polymorphisme: Functions with the same name but different parameters  
+Operator overload: Add more parameters  
+Canonical form: Standardize class  
 
-
-
-
-
-
-
-
-
-<!--
-OpenClassRooms:
-cin.ignore(); // quand je melange du cin avant du getline
-
--->
