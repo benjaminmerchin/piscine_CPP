@@ -1,4 +1,4 @@
-NAME	=	program
+NAME	=	a.out
 CC		=	clang++
 OBJDIR	=	objects
 SRC		=	main.cpp Fixed.cpp
