@@ -307,5 +307,38 @@ int main()
 
 Polymorphisme: Functions with the same name but different parameters  
 Operator overload: Add more parameters  
+```
+Integer Integer::operator+(const Integer &rhs) const {
+	return Integer(this->_n + rhs.getValue());
+}
+Integer & Integer::operator=(const Integer &rhs) {
+	this->_n = rhs.getValue();
+	return *this;
+}
+std::ostream & operator<<(std::ostream & o, Integer const & rhs){
+	o << rhs.getValue();
+	return o;
+}
+```
 Canonical form: Standardize class  
+```
+#include <iostream>
+
+class Sample {
+public:
+	Sample(void);		//Canonical form
+	Sample(const int n);
+	Sample(Sample const & src);	//Canonical form copy constructor
+	virtual ~Sample(void);		//Canonical form
+
+	Sample & operator=(Sample const & rhs);		//Canonical form
+
+	int getFoo(void) const;
+
+private:
+	int _foo;
+};
+
+std::ostream & operator<<(std::ostream & o, Sample const & i);
+```
 
