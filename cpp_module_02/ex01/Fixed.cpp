@@ -17,7 +17,7 @@ Fixed::Fixed(const float f) {
 	_value_fixed_point = round(f * (1 << _number_bits));
 }
 
-Fixed::Fixed(Fixed const & src ) {
+Fixed::Fixed(Fixed const & src) {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
