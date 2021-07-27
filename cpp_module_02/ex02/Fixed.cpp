@@ -76,6 +76,31 @@ Fixed Fixed::operator/(const Fixed & rhs) const {
 	return Fixed(toFloat() / rhs.toFloat());
 }
 
+// postfix & prefix operator documentation:
+// https://docs.microsoft.com/en-us/cpp/cpp/increment-and-decrement-operator-overloading-cpp?view=msvc-160
+
+Fixed & Fixed::operator++(void) { //++i prefix
+	_value_fixed_point++;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int) { //i++ postfix
+	Fixed tmp(*this);
+	_value_fixed_point++;
+	return tmp;
+}
+
+Fixed & Fixed::operator--(void) { //--i prefix
+	_value_fixed_point--;
+	return (*this);
+}
+
+Fixed Fixed::operator--(int) { //i-- postfix
+	Fixed tmp(*this);
+	_value_fixed_point--;
+	return tmp;
+}
+
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs) {
 	o << rhs.toFloat();
 	return o;
@@ -99,4 +124,20 @@ float Fixed::toFloat(void) const {
 
 int Fixed::toInt(void) const {
 	return _value_fixed_point >> _number_bits;
+}
+
+Fixed const & Fixed::min(Fixed const & a, Fixed const & b) {
+	return (a < b ? a : b); //member
+}
+
+Fixed const & Fixed::max(Fixed const & a, Fixed const & b) {
+	return (a < b ? b : a); //member
+}
+
+Fixed & Fixed::min(Fixed & a, Fixed & b) {
+	return (a < b ? a : b); //overload
+}
+
+Fixed & Fixed::max(Fixed & a, Fixed & b) {
+	return (a < b ? b : a); //overload
 }
