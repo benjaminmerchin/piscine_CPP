@@ -1,5 +1,5 @@
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 # include <iostream>
 

@@ -54,8 +54,6 @@ int main(void) {
 	std::cout << "d = " << d << std::endl;
 	std::cout << "member   min(a, d) = " << Fixed::min(a, d) << "  (expecting: 1.109)" << std::endl;
 	std::cout << "member   max(a, d) = " << Fixed::max(a, d) << "        (expecting: 3)" << std::endl;
-	std::cout << "overload min(a, d) = " << std::min(a, d) << "  (expecting: 1.109)" << std::endl;
-	std::cout << "overload max(a, d) = " << std::max(a, d) << "        (expecting: 3)" << std::endl;
 
 	/*Fixed a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
