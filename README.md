@@ -341,3 +341,14 @@ private:
 
 std::ostream & operator<<(std::ostream & o, Sample const & i);
 ```
+
+## Module 3
+
+Inheritance  
+Mutualize some functions between classes  
+Derivated class can be perceived as more precize classes  
+New keyword completing public/privte : proteted : accessible from the class instance and from derivated classes.  
+
+Two class Dog and Animals:  
+Dog is a derivated class from Animal. (Add more precision) We can use Anima's protected function inside dog  
+Dog inherit from Animal's functions.  
