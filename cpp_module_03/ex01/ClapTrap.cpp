@@ -6,17 +6,22 @@
 
 ClapTrap::ClapTrap(void) : _hitPoints(10), _energyPoints(10), _attackDamage(10) {
 	_name = "Name";
+	std::cout << "ClapTrap " << getName() << " constructed by default" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string const & name) : _hitPoints(10), _energyPoints(10), _attackDamage(10) {
 	_name = name;
+	std::cout << "ClapTrap " << getName() << " constructed with custom name" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap & src) {
 	*this = src;
+	std::cout << "ClapTrap " << getName() << " constructed with src" << std::endl;
 }
 
-ClapTrap::~ClapTrap(void) {}
+ClapTrap::~ClapTrap(void) {
+	std::cout << "ClapTrap " << getName() << " destructed" << std::endl;
+}
 
 /* -------------------------------------------------- */
 /* -------------------- OPERATOR -------------------- */
