@@ -3,9 +3,10 @@
 
 int main(void)
 {
-	ClapTrap Tin("TinTin");
+	ScavTrap Tin("TinTin");
+	std::cout << std::endl;
 
-	std::cout << "We created a ClapTrap" << std::endl;
+	std::cout << "We created a ScavTrap and a ClapTrap" << std::endl;
 	std::cout << Tin << std::endl;
 	std::cout << std::endl;
 
@@ -19,6 +20,18 @@ int main(void)
 
 	std::cout << Tin.getName() << " can be repaired:" << std::endl;
 	Tin.beRepaired(5);
+	std::cout << std::endl;
 
-	return (0);
+	std::cout << Tin.getName() << " can guard:" << std::endl;
+	std::cout << Tin.getName() << " is currently: ";
+	std::cout << (Tin.getGuardGate() == true ? "guarding" : "not guarding") << std::endl;
+	Tin.guardGate();
+	std::cout << Tin.getName() << " is currently: ";
+	std::cout << (Tin.getGuardGate() == true ? "guarding" : "not guarding") << std::endl;
+	std::cout << std::endl;
+	
+	
+
+
+	return (0);  
 }

@@ -4,15 +4,15 @@
 /* ------------ CONSTRUCTOR / DESTRUCTOR ------------ */
 /* -------------------------------------------------- */
 
-ClapTrap::ClapTrap(void) : _hitPoints(10), _energyPoints(10), _attackDamage(10) {
-	_name = "Name";
+ClapTrap::ClapTrap(void) : _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+	_name = "noName";
 }
 
-ClapTrap::ClapTrap(std::string const & name) : _hitPoints(10), _energyPoints(10), _attackDamage(10) {
+ClapTrap::ClapTrap(std::string const & name) : _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	_name = name;
 }
 
-ClapTrap::ClapTrap(ClapTrap & src) {
+ClapTrap::ClapTrap(ClapTrap const & src) {
 	*this = src;
 }
 

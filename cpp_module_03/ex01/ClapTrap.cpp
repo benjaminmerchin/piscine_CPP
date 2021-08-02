@@ -4,17 +4,17 @@
 /* ------------ CONSTRUCTOR / DESTRUCTOR ------------ */
 /* -------------------------------------------------- */
 
-ClapTrap::ClapTrap(void) : _hitPoints(10), _energyPoints(10), _attackDamage(10) {
-	_name = "Name";
+ClapTrap::ClapTrap(void) : _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+	_name = "noName";
 	std::cout << "ClapTrap " << getName() << " constructed by default" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string const & name) : _hitPoints(10), _energyPoints(10), _attackDamage(10) {
+ClapTrap::ClapTrap(std::string const & name) : _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	_name = name;
 	std::cout << "ClapTrap " << getName() << " constructed with custom name" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap & src) {
+ClapTrap::ClapTrap(ClapTrap const & src) {
 	*this = src;
 	std::cout << "ClapTrap " << getName() << " constructed with src" << std::endl;
 }
