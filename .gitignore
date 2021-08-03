@@ -14,6 +14,6 @@ cpp_module_01/*/replace
 cpp_module_01/*/*.replace
 cpp_module_01/*/Karen
 cpp_module_01/*/karenFilter
-cpp_module_02/test
+*/test
 .vscode
 .DS_Store
