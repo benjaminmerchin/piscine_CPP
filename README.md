@@ -6,17 +6,17 @@
 
 ## Module 0
 Print Hello World 5 on stdout:
-```
+```C++
 int n = 5;
 std::cout << "Hello World" << " " << n << std::endl;
 ```
 Store input values separated by spaces in a, b and c:
-```
+```C++
 int a, b, c;
 std::cin >> a >> b >> c;
 ```
 Reading Some data, alternative solution:
-```
+```C++
 int a;
 long b;
 char c;
@@ -25,11 +25,11 @@ double e;
 scanf("%d %ld %c %f %lf", &a, &b, &c, &d, &e);
 ```
 Declare a string table:
-```
+```C++
 string c[]={"","one","two","three","four"};
 ```
 Namespaces :: the scope resolution operator
-```
+```C++
 int gl_var = 1;
 int f(void){return 2;}
 
@@ -40,12 +40,12 @@ namespace	Foo {
 
 namespace Bar = Foo;
 ```
-```
+```C++
 printf("%d %d %d %d\n", gl_var, ::gl_var, Foo::gl_var, Bar::gl_var);
 printf("%d %d %d\n", f(), Foo::f(), Bar::f());
 ```
 Swap: (in this example case, swap the content of 2 strings)
-```
+```C++
 seller.swap (buyer);
 ```
 Classes:  
@@ -54,7 +54,7 @@ ClassName.class.cpp: way to structurize the code
 When the class is launched, the constructor function is called  
 When the class is destructed, the destructor function is called  
 Desctuctor and Constructors doesn't have return type
-```
+```C++
 class Sample {
 
 public:
@@ -64,7 +64,7 @@ public:
 
 };
 ```
-```
+```C++
 Sample::Sample(void) { //usefull to initialize values
 	std::cout  << "Constructor called" << std::endl; //constructor
 	this->foo = 42; //this is a pointer so ->
@@ -75,7 +75,7 @@ Sample::~Sample(void) {
 	std::cout  << "Destructor called" << std::endl; //destructor
 }
 ```
-```
+```C++
 int main() {
 	Sample new_instance; //declare a new instance of Sample class
 						 //execute the constructor code
@@ -84,7 +84,7 @@ int main() {
 }
 ```
 Member attributes and member functions
-```
+```C++
 class Sample {
 
 public:
@@ -98,12 +98,12 @@ private: //what doesn't matter outside the class
 						//good practice to put _ in front of private func/val
 };
 ```
-```
+```C++
 void	Sample::bar(void) {
 	std::cout  << "Member function called" << std::endl; //constructor
 }
 ```
-```
+```C++
 int main() {
 	Sample new_instance;
 
@@ -114,13 +114,13 @@ int main() {
 }
 ```
 Sample2
-```
+```C++
 Sample2::Sample2(int foo2):foo(foo2) {
 	std::cout << this->foo;
 }
 ```
 Const: Good to use as much of them as possible in the long term in the long term
-```
+```C++
 class Sample {
 
 public:
@@ -133,7 +133,7 @@ public:
 							//always put const if no modif on class instance
 };
 ```
-```
+```C++
 Sample::Sample(float const f):pi(f), qd(42) { //we initialize the constant
 	std::cout  << "Constructor called" << std::endl;
 	return
@@ -152,7 +152,7 @@ Appart from this, it is the same
 It is better to use by default a class  
   
 Good practice (accessors):
-```
+```C++
 class Sample {
 
 public:
@@ -174,7 +174,7 @@ int	Sample::getNbInst(void) {
 }
 -->
 Pointers to members:
-```
+```C++
 int main() {
 	Sample		instance;
 	Sample *	point_instance = &insrance;
@@ -194,7 +194,7 @@ int main() {
 ```
 ## Module 1
 Allocate memory
-```
+```C++
 int main()
 {
 	Student		bob = Student("bmerchin"); //call constructor to use it correctly
@@ -209,7 +209,7 @@ int main()
 References : Alias to existing variables
 Constant pointer always dereferenced and never null
 Impossible to create uninitialized references
-```
+```C++
 void byRef(std::string& str) {
 	str += " and ponies";
 }
@@ -225,7 +225,7 @@ int main() {
 	return (0);
 }
 ```
-```
+```C++
 #include <iostream>
 #include <string>
 
@@ -279,7 +279,7 @@ int main()
 }
 ```
 Filestream
-```
+```C++
 #include <iostream>
 #include <fstream>
 
@@ -307,7 +307,7 @@ int main()
 
 Polymorphisme: Functions with the same name but different parameters  
 Operator overload: Add more parameters  
-```
+```C++
 Integer Integer::operator+(const Integer &rhs) const {
 	return Integer(this->_n + rhs.getValue());
 }
@@ -321,7 +321,7 @@ std::ostream & operator<<(std::ostream & o, Integer const & rhs){
 }
 ```
 Canonical form: Standardize class  
-```
+```C++
 #include <iostream>
 
 class Sample {
@@ -342,7 +342,7 @@ private:
 std::ostream & operator<<(std::ostream & o, Sample const & i);
 ```
 
-## Module 3
+## Module 3 & 4
 
 Inheritance  
 Mutualize some functions between classes  
@@ -352,3 +352,40 @@ New keyword completing public/privte : proteted : accessible from the class inst
 Two class Dog and Animals:  
 Dog is a derivated class from Animal. (Add more precision) We can use Anima's protected function inside dog  
 Dog inherit from Animal's functions.  
+
+Use the keyword virtual if your compilator needs to verify if a function has been overwritten in a subclass  
+You also need to use this keyword for destructors in order to avoid memory leaks
+```C++
+class ScavTrap : public ClapTrap {
+public:
+	virtual ~ScavTrap(void);
+
+	virtual void attack(std::string const & target);
+	...
+};
+```
+
+Polymorphism  
+A virtual member functin is a method.  
+A pure method is initialized at 0. This means that we can't implement this method and we can't instance the class. The class therefore become an abstract class.  
+An abstract class can't be instanciated, therefore if it has a name, it must be instanciated by its derivated class.  
+For example in this case, the attack will be taken from a function in a derivated class.  
+```C++
+class ACharacter {
+public:
+	virtual void attack(std::string const & target) = 0;
+	void sayHello(std::string const & target);
+private:
+	std::string _name;
+};
+```
+If everything is abstract, it is called an Interface. Interfaces can't have attributes.
+```C++
+class ICoffeeMaker {
+public:
+	virtual void fillWatertank(IWaterSource * src) = 0;
+	virtual Icoffee* makeCoffee(std::string const & type) = 0;
+};
+```
+
+## Module 5
