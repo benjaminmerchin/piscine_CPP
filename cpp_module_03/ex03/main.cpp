@@ -12,15 +12,26 @@ int main(void)
 	ScavTrap Tin("TinTin");
 	ClapTrap Jon("JonJon");
 	FragTrap Luc("LucLuc");
+	DiamondTrap Dia("DiaDia");
+	DiamondTrap Dim;
 	std::cout << std::endl;
 
 	std::cout << "We created a ScavTrap and a ClapTrap" << std::endl;
 	std::cout << Tin << std::endl;
 	std::cout << std::endl;
 
-	std::cout << Tin.getName() << " can attack:" << std::endl;
+	std::cout << "We created a FragTrap and a ClapTrap" << std::endl;
+	std::cout << Luc << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "We created a DiamondTrap" << std::endl;
+	std::cout << Dia << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "They can attack:" << std::endl;
 	ft_attack(Tin, "MaxMax");
 	ft_attack(Jon, "MaxMax");
+	ft_attack(Dia, "MaxMax");
 	std::cout << std::endl;
 
 	std::cout << Tin.getName() << " can take damage:" << std::endl;
@@ -40,7 +51,11 @@ int main(void)
 	std::cout << std::endl;
 
 	Luc.highFivesGuys();
+	Dia.highFivesGuys();
 	std::cout << std::endl;
 
+	Dia.guardGate();
+	Dia.whoAmI();
+	std::cout << std::endl;
 	return (0);
 }

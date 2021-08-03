@@ -17,7 +17,11 @@ int main(void)
 	std::cout << Tin << std::endl;
 	std::cout << std::endl;
 
-	std::cout << Tin.getName() << " can attack:" << std::endl;
+	std::cout << "We created a FragTrap and a ClapTrap" << std::endl;
+	std::cout << Luc << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "They can attack:" << std::endl;
 	ft_attack(Tin, "MaxMax");
 	ft_attack(Jon, "MaxMax");
 	std::cout << std::endl;
