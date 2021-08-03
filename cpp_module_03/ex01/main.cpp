@@ -36,5 +36,5 @@ int main(void)
 	std::cout << (Tin.getGuardGate() == true ? "guarding" : "not guarding") << std::endl;
 	std::cout << std::endl;
 	
-	return (0);  
+	return (0);
 }
