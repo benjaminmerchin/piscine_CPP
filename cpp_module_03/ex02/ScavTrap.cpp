@@ -11,8 +11,7 @@ ScavTrap::ScavTrap(void) : _guard(false) {
 	std::cout << "ScavTrap " << getName() << " constructed with default" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string const & name) : _guard(false) {
-	setName(name);
+ScavTrap::ScavTrap(std::string const & name) : ClapTrap::ClapTrap(name), _guard(false) {
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;

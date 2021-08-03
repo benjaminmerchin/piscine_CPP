@@ -1,7 +1,7 @@
 NAME	=	a.out
 CC		=	clang++
 OBJDIR	=	objects
-SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g3
 
