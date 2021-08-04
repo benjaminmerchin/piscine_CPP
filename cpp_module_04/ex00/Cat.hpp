@@ -10,6 +10,8 @@ public:
 	Cat & operator=(Cat const & rhs);
 	virtual ~Cat();
 
+	virtual void makeSound() const;
+
 private:
 
 };

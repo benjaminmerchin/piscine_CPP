@@ -6,12 +6,15 @@
 class Animal {
 public:
 	Animal();
+	Animal(std::string const & type);
 	Animal(Animal const & src);
 	Animal & operator=(Animal const & rhs);
 	virtual ~Animal();
 
 	void setType(std::string const type);
-	std::string getType() const;
+	std::string getType(void) const;
+
+	virtual void makeSound() const;
 
 protected:
 	std::string _type;

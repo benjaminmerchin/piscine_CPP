@@ -15,7 +15,7 @@ public:
 
 	void whoAmI(void);
 
-protected:
+private:
 	std::string _name;
 };
 
