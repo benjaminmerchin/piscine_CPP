@@ -5,6 +5,7 @@
 /* -------------------------------------------------- */
 
 Dog::Dog() : Animal::Animal("Dog") {
+	_dog_brain = new Brain;
 	std::cout << "Dog created with default constructor" << std::endl;
 }
 
@@ -14,6 +15,7 @@ Dog::Dog(Dog const & src) {
 }
 
 Dog::~Dog() {
+	delete _dog_brain;
 	std::cout << "Dog destructed" << std::endl;
 }
 

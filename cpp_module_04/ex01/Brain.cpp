@@ -1,35 +1,33 @@
-#include "Cat.hpp"
+#include "Brain.hpp"
 
 /* -------------------------------------------------- */
 /* ------------ CONSTRUCTOR / DESTRUCTOR ------------ */
 /* -------------------------------------------------- */
 
-Cat::Cat() : Animal::Animal("Cat") {
-	_cat_brain = new Brain;
-	std::cout << "Cat created with default constructor" << std::endl;
+Brain::Brain() {
+	for (int i = 0; i < 100; i++) {
+		_ideas[i] = "ideas";
+	}
+	std::cout << "Brain created with default constructor" << std::endl;
 }
 
-Cat::Cat(Cat const & src) {
+Brain::Brain(Brain const & src) {
 	*this = src;
-	std::cout << "Cat created with src" << std::endl;
+	std::cout << "Brain created with src" << std::endl;
 }
 
-Cat::~Cat() {
-	delete _cat_brain;
-	std::cout << "Cat destructed" << std::endl;
+Brain::~Brain() {
+	std::cout << "Brain destructed" << std::endl;
 }
 
 /* -------------------------------------------------- */
 /* -------------------- OPERATOR -------------------- */
 /* -------------------------------------------------- */
 
-std::ostream & operator<<(std::ostream & o, Cat const & src) {
-	o << "Hello, I'm a " << src.getType() << std::endl;
-	return o;
-}
-
-Cat & Cat::operator=(Cat const & rhs) {
-	_type = rhs.getType();
+Brain & Brain::operator=(Brain const & rhs) {
+	for (int i = 0; i < 100; i++) {
+		_ideas[i] = rhs._ideas[i];
+	}
 	return *this;
 }
 
@@ -41,6 +39,3 @@ Cat & Cat::operator=(Cat const & rhs) {
 /* ---------------- MEMBER FUNCTIONS ---------------- */
 /* -------------------------------------------------- */
 
-void Cat::makeSound() const {
-	std::cout << getType() << "'s sound: Meow!" << std::endl;
-}

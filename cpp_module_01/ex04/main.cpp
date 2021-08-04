@@ -27,7 +27,6 @@ std::string	search_and_replace(std::string content, std::string s1, std::string 
 	return output;
 }
 
-
 int main(int ac, char **av)
 {
 	std::string s1;

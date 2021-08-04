@@ -13,6 +13,7 @@ public:
 	virtual void makeSound() const;
 
 private:
+	Brain* _dog_brain;
 
 };
 
