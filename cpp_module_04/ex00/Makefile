@@ -1,7 +1,7 @@
 NAME	=	a.out
 CC		=	clang++
 OBJDIR	=	objects
-SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRC		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 CFLAGS	=	-Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98 -g3
 
