@@ -11,6 +11,7 @@ public:
 	virtual ~Dog();
 
 	virtual void makeSound() const;
+	Brain* getBrain() const;
 
 private:
 	Brain* _dog_brain;

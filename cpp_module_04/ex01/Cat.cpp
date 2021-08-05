@@ -4,13 +4,13 @@
 /* ------------ CONSTRUCTOR / DESTRUCTOR ------------ */
 /* -------------------------------------------------- */
 
-Cat::Cat() : Animal::Animal("Cat") {
+Cat::Cat() : Animal("Cat") {
 	_cat_brain = new Brain;
 	std::cout << "Cat created with default constructor" << std::endl;
 }
 
-Cat::Cat(Cat const & src) {
-	*this = src;
+Cat::Cat(Cat const & src) : Animal(src) {
+	_cat_brain = new Brain(*src._cat_brain);
 	std::cout << "Cat created with src" << std::endl;
 }
 
@@ -29,7 +29,8 @@ std::ostream & operator<<(std::ostream & o, Cat const & src) {
 }
 
 Cat & Cat::operator=(Cat const & rhs) {
-	_cat_brain = new Brain();
+	delete _cat_brain;
+	_cat_brain = new Brain(*rhs._cat_brain);
 	_type = rhs.getType();
 	return *this;
 }

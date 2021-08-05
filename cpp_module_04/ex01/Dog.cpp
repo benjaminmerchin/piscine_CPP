@@ -4,13 +4,13 @@
 /* ------------ CONSTRUCTOR / DESTRUCTOR ------------ */
 /* -------------------------------------------------- */
 
-Dog::Dog() : Animal::Animal("Dog") {
+Dog::Dog() : Animal("Dog") {
 	_dog_brain = new Brain;
 	std::cout << "Dog created with default constructor" << std::endl;
 }
 
-Dog::Dog(Dog const & src) {
-	*this = src;
+Dog::Dog(Dog const & src) : Animal(src) {
+	_dog_brain = new Brain(*src._dog_brain);
 	std::cout << "Dog created with src" << std::endl;
 }
 
@@ -29,7 +29,8 @@ std::ostream & operator<<(std::ostream & o, Dog const & src) {
 }
 
 Dog & Dog::operator=(Dog const & rhs) {
-	_dog_brain = new Brain();
+	delete _dog_brain;
+	_dog_brain = new Brain(*rhs._dog_brain);
 	_type = rhs.getType();
 	return *this;
 }
@@ -44,4 +45,8 @@ Dog & Dog::operator=(Dog const & rhs) {
 
 void Dog::makeSound() const {
 	std::cout << getType() << "'s sound: Woof!" << std::endl;
+}
+
+Brain* Dog::getBrain() const {
+	return _dog_brain;
 }

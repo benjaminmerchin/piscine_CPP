@@ -7,30 +7,53 @@
 
 int main()
 {
+	/*const Animal* i = new Cat();
 	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const Animal* k;
 	std::cout << std::endl;
 
-	delete j;//should not create a leak
+	k = i;
 	delete i;
-	/*int size = 10;
+	k->makeSound();
+	j->makeSound();
+	std::cout << std::endl;
+
+	delete j;
+	delete k;
+	std::cout << std::endl;*/
+
+	std::cout << "/*===============================*/\n\n";
+
+	/*{
+		Dog a;
+		Dog b;
+		Dog c(a);
+
+		b = a;
+
+		std::cout << a.getBrain() << std::endl;
+		std::cout << b.getBrain() << std::endl;
+		std::cout << c.getBrain() << std::endl;
+	}
+	std::cout << std::endl;*/
+
+	std::cout << "/*===============================*/\n\n";
+
+	/*int size = 8;
 	Animal* Snoopy[size];
-	for (int i; i < size; i++) {
+	for (int i=0; i < size; i++) {
 		if (i%2==0)
 			Snoopy[i] = new Cat();
 		else
 			Snoopy[i] = new Dog();
 	}
+	std::cout << std::endl;
 
+	for (int i=0; i < size; i++)
+		Snoopy[i]->makeSound();
+	std::cout << std::endl;
 
-
-
-
-
-
-
-
-	for (int i; i < size; i++) {
+	for (int i=0; i < size; i++)
 		delete Snoopy[i];
-	}*/
+	*/
 }

@@ -5,14 +5,14 @@
 /* -------------------------------------------------- */
 
 Brain::Brain() {
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 100; i++)
 		_ideas[i] = "ideas";
-	}
 	std::cout << "Brain created with default constructor" << std::endl;
 }
 
 Brain::Brain(Brain const & src) {
-	*this = src;
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = src._ideas[i];
 	std::cout << "Brain created with src" << std::endl;
 }
 
@@ -25,9 +25,8 @@ Brain::~Brain() {
 /* -------------------------------------------------- */
 
 Brain & Brain::operator=(Brain const & rhs) {
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 100; i++)
 		_ideas[i] = rhs._ideas[i];
-	}
 	return *this;
 }
 
@@ -38,4 +37,3 @@ Brain & Brain::operator=(Brain const & rhs) {
 /* -------------------------------------------------- */
 /* ---------------- MEMBER FUNCTIONS ---------------- */
 /* -------------------------------------------------- */
-
