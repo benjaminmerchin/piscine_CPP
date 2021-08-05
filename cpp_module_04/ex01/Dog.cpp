@@ -29,6 +29,7 @@ std::ostream & operator<<(std::ostream & o, Dog const & src) {
 }
 
 Dog & Dog::operator=(Dog const & rhs) {
+	_dog_brain = new Brain();
 	_type = rhs.getType();
 	return *this;
 }

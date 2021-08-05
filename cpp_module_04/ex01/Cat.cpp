@@ -29,6 +29,7 @@ std::ostream & operator<<(std::ostream & o, Cat const & src) {
 }
 
 Cat & Cat::operator=(Cat const & rhs) {
+	_cat_brain = new Brain();
 	_type = rhs.getType();
 	return *this;
 }
