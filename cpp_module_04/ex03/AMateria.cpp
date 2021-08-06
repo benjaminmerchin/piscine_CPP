@@ -14,6 +14,11 @@ AMateria::AMateria(std::string const & type) {
 	std::cout << "AMateria created with type" << std::endl;
 }
 
+AMateria::AMateria(AMateria const & src) {
+	_type = src.getType();
+	std::cout << "AMateria created with src constructor" << std::endl;
+}
+
 AMateria::~AMateria() {
 	std::cout << "AMateria destructed" << std::endl;
 }

@@ -6,7 +6,13 @@
 #include "MateriaSource.hpp"
 
 class Ice : public AMateria, public Character, public MateriaSource {
+public:
+	Ice();
+	Ice(Ice const & rhs);
+	Ice & operator=(Ice const & rhs);
+	~Ice();
 
+	AMateria* clone() const;
 };
 
 #endif
