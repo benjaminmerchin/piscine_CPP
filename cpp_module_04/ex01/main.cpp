@@ -7,20 +7,19 @@
 
 int main()
 {
-	/*const Animal* i = new Cat();
+	const Cat *i = new Cat();
 	const Animal* j = new Dog();
-	const Animal* k;
+	Cat k;
 	std::cout << std::endl;
 
-	k = i;
+	k = *i;
 	delete i;
-	k->makeSound();
+	k.makeSound();
 	j->makeSound();
 	std::cout << std::endl;
 
 	delete j;
-	delete k;
-	std::cout << std::endl;*/
+	std::cout << std::endl;
 
 	std::cout << "/*===============================*/\n\n";
 
