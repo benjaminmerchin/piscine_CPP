@@ -4,8 +4,14 @@
 # include "Character.hpp"
 # include "MateriaSource.hpp"
 
-class Ice : public Character, public MateriaSource {
-	
+class Cure : public AMateria, public Character, public MateriaSource {
+public:
+	Cure();
+	Cure(Cure const & rhs);
+	Cure & operator=(Cure const & rhs);
+	~Cure();
+
+	AMateria* clone() const;
 };
 
 #endif

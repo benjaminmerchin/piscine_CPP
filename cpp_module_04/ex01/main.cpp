@@ -7,7 +7,7 @@
 
 int main()
 {
-	{
+	/*{
 		const Animal* i = new Cat();
 		const Animal* j = new Dog();
 		Cat k;
@@ -22,12 +22,12 @@ int main()
 		std::cout << std::endl;
 
 		delete j;
-	}
+	}*/
 	std::cout << std::endl;
 
 	std::cout << "/*===============================*/\n\n";
 
-	{
+	/*{
 		Dog a;
 		Dog b;
 		Dog c(a);
@@ -37,12 +37,12 @@ int main()
 		std::cout << a.getBrain() << std::endl;
 		std::cout << b.getBrain() << std::endl;
 		std::cout << c.getBrain() << std::endl;
-	}
+	}*/
 	std::cout << std::endl;
 
 	std::cout << "/*===============================*/\n\n";
 
-	int size = 8;
+	/*int size = 8;
 	Animal* Snoopy[size];
 	for (int i=0; i < size; i++) {
 		if (i%2==0)
@@ -57,5 +57,5 @@ int main()
 	std::cout << std::endl;
 
 	for (int i=0; i < size; i++)
-		delete Snoopy[i];
+		delete Snoopy[i];*/
 }
