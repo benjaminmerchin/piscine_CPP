@@ -6,8 +6,11 @@
 
 class Character : public ICharacter {
 public:
-
-	~Character() {}
+	Character();
+	Character(std::string const name);
+	Character(Character const & src);
+	~Character();
+	Character & operator=(Character const & rhs);
 
 	std::string const & getName() const;
 	void equip(AMateria* m);
@@ -16,7 +19,7 @@ public:
 
 protected:
 	AMateria* _materia[4];
-
+	std::string _name;
 
 };
 

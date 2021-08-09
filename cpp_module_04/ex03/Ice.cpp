@@ -27,6 +27,7 @@ Ice::~Ice() {
 /* -------------------------------------------------- */
 
 Ice & Ice::operator=(Ice const & rhs) {
+	_type = rhs.getType();
 	return *this;
 }
 
@@ -41,4 +42,8 @@ Ice & Ice::operator=(Ice const & rhs) {
 AMateria* Ice::clone() const {
 	Ice* a = new Ice(*this);
 	return a;
+}
+
+void Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at NAME *" << std::endl;
 }

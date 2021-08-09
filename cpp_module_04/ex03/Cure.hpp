@@ -4,7 +4,7 @@
 # include "Character.hpp"
 # include "MateriaSource.hpp"
 
-class Cure : public AMateria, public Character, public MateriaSource {
+class Cure : public AMateria/*, public Character, public MateriaSource */{
 public:
 	Cure();
 	Cure(Cure const & rhs);
@@ -12,6 +12,7 @@ public:
 	~Cure();
 
 	AMateria* clone() const;
+	void use(ICharacter& target);
 };
 
 #endif

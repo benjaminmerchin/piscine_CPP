@@ -1,7 +1,7 @@
 NAME	=	a.out
 CC		=	clang++
 OBJDIR	=	objects
-SRC		=	main.cpp
+SRC		=	AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 CFLAGS	=	-Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98 -g3
 
