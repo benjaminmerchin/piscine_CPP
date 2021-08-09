@@ -23,3 +23,16 @@ int main()
 	delete src;*/
 	return 0;
 }
+
+/*
+There is an AMateria class. (represent a Materia)
+Cure (heal) and Ice (an attack) inherit from AMateria.
+
+There is also Character and ICharacter.
+Character is like a personage and inherit up to 4 Materia.
+Character inherit from ICharacter.
+
+Then the last element are MateriaSource and IMateriaSource.
+It is like a memory that can store up to 4 Materia
+It can return one of the Materia that have been stored
+*/

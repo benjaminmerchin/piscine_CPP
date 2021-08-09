@@ -8,7 +8,7 @@ Ice::Ice() : AMateria("ice") {
 	std::cout << "Ice created with default constructor" << std::endl;
 }
 
-Ice::Ice(Ice const & src)  : AMateria(src) {
+Ice::Ice(Ice const & src) : AMateria(src) {
 	*this = src;
 	std::cout << "Ice created with src" << std::endl;
 }
@@ -45,5 +45,5 @@ AMateria* Ice::clone() const {
 }
 
 void Ice::use(ICharacter& target) {
-	std::cout << "* shoots an ice bolt at NAME *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

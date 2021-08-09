@@ -2,8 +2,20 @@
 # define MATERIASOURCE_HPP
 
 # include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
 class MateriaSource : public IMateriaSource {
+public:
+	MateriaSource();
+	MateriaSource(MateriaSource const & src);
+	~MateriaSource();
+	MateriaSource & operator=(MateriaSource const & rhs);
+
+	void learnMateria(AMateria*);
+	AMateria* createMateria(std::string const & type);
+
+protected:
+	AMateria* _materia_source[4];
 
 };
 

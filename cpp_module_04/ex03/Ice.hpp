@@ -5,7 +5,7 @@
 #include "Character.hpp"
 #include "MateriaSource.hpp"
 
-class Ice : public AMateria/*, public Character, public MateriaSource*/ {
+class Ice : public AMateria {
 public:
 	Ice();
 	Ice(Ice const & rhs);

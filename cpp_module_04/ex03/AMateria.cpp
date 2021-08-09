@@ -43,3 +43,8 @@ std::string const & AMateria::getType() const {
 /* -------------------------------------------------- */
 /* ---------------- MEMBER FUNCTIONS ---------------- */
 /* -------------------------------------------------- */
+
+void AMateria::use(ICharacter& target) {
+	(void)target;
+	std::cout << "Should use the function from the derivated class" << std::endl;
+}

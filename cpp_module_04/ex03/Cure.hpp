@@ -4,7 +4,7 @@
 # include "Character.hpp"
 # include "MateriaSource.hpp"
 
-class Cure : public AMateria/*, public Character, public MateriaSource */{
+class Cure : public AMateria {
 public:
 	Cure();
 	Cure(Cure const & rhs);
