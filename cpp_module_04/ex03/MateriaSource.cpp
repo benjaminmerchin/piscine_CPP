@@ -5,11 +5,14 @@
 /* -------------------------------------------------- */
 
 MateriaSource::MateriaSource() {
+	for (int i = 0; i < 4; i++)
+		_materia_source[i] = NULL;
 	std::cout << "MateriaSource created with default constructor" << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource const & src) {
-	*this = src;
+	for (int i = 0; i < 4; i++)
+		_materia_source[i] = src._materia_source[i];
 	std::cout << "MateriaSource created with src" << std::endl;
 }
 
@@ -25,11 +28,13 @@ MateriaSource::~MateriaSource() {
 /* -------------------------------------------------- */
 /* -------------------- OPERATOR -------------------- */
 /* -------------------------------------------------- */
-/*
+
+
 MateriaSource & MateriaSource::operator=(MateriaSource const & rhs) {
-	_type = rhs.getType();
+	for (int i = 0; i < 4; i++)
+		_materia_source[i] = rhs._materia_source[i];
 	return *this;
-}*/
+}
 
 /* -------------------------------------------------- */
 /* --------------- GETTERS / SETTERS ---------------- */
@@ -38,3 +43,24 @@ MateriaSource & MateriaSource::operator=(MateriaSource const & rhs) {
 /* -------------------------------------------------- */
 /* ---------------- MEMBER FUNCTIONS ---------------- */
 /* -------------------------------------------------- */
+
+void MateriaSource::learnMateria(AMateria* m) {
+	int index_to_equip = - 1;
+	for (int i = 0; i < 4; i++) {
+		if (_materia_source[i] != NULL)
+			if (index_to_equip != -1)
+					index_to_equip = i;
+	}
+	if (index_to_equip == -1) {
+		std::cout << "MateriaSource inventory full, equip not possible" << std::endl;
+		return ;
+	}
+	_materia_source[index_to_equip] = m;
+}
+
+AMateria* MateriaSource::createMateria(std::string const & type) {
+	for (int i = 0; i < 4; i++)
+		if (_materia_source[i] != NULL && _materia_source[i]->getType() == type)
+			return (_materia_source[i]->clone());
+	return NULL;
+}

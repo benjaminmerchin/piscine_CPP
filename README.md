@@ -388,4 +388,6 @@ public:
 };
 ```
 
+<!-- Note a moi-meme : J'ai vraiment besoin de savoir clairement ce que je dois faire dans un exercice, ensuite j'arrive a bien derouler. La ou je perds le plus de temps c'est de vouloir passer directement a l'execution sans avoir clairement la direction a prendre. -->
+
 ## Module 5

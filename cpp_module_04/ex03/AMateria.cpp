@@ -45,6 +45,5 @@ std::string const & AMateria::getType() const {
 /* -------------------------------------------------- */
 
 void AMateria::use(ICharacter& target) {
-	(void)target;
-	std::cout << "Should use the function from the derivated class" << std::endl;
+	std::cout << "* uses an " << _type << " at " << target.getName() << " *" << std::endl;
 }
