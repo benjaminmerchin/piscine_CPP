@@ -47,8 +47,8 @@ MateriaSource & MateriaSource::operator=(MateriaSource const & rhs) {
 void MateriaSource::learnMateria(AMateria* m) {
 	int index_to_equip = - 1;
 	for (int i = 0; i < 4; i++) {
-		if (_materia_source[i] != NULL)
-			if (index_to_equip != -1)
+		if (_materia_source[i] == NULL)
+			if (index_to_equip == -1)
 					index_to_equip = i;
 	}
 	if (index_to_equip == -1) {
@@ -59,8 +59,10 @@ void MateriaSource::learnMateria(AMateria* m) {
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
-	for (int i = 0; i < 4; i++)
-		if (_materia_source[i] != NULL && _materia_source[i]->getType() == type)
+	for (int i = 0; i < 4; i++) {
+		if (_materia_source[i] != NULL && _materia_source[i]->getType() == type) {
 			return (_materia_source[i]->clone());
+		}
+	}
 	return NULL;
 }

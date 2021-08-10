@@ -63,8 +63,8 @@ void Character::use(int idx, ICharacter& target) {
 void Character::equip(AMateria* m) {
 	int index_to_equip = - 1;
 	for (int i = 0; i < 4; i++) {
-		if (_materia[i] != NULL)
-			if (index_to_equip != -1)
+		if (_materia[i] == NULL)
+			if (index_to_equip == -1)
 				index_to_equip = i;
 	}
 	if (index_to_equip == -1) {
