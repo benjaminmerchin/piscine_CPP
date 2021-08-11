@@ -27,12 +27,16 @@ int main()
 	me->use(0, *bob);
 	me->use(2, *bob);
 	std::cout << "===========================================\n";
-	//ICharacter* me2 = me;
-	delete me;
-	//me2->use(0, *bob);
-	//std::cout << "===========================================\n";
+	Character a("A");
+	Character b("B");
+	a.equip(src->createMateria("ice"));
+	b = a;
+	a.equip(src->createMateria("cure"));
+	a.use(1, *bob);
+	b.use(1, *bob);
+	std::cout << "===========================================\n";
 	delete bob;
-	//delete me2;
+	delete me;
 	delete src;
 	return 0;
 }

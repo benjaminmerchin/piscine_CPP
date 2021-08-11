@@ -21,7 +21,14 @@ Character::Character(std::string const name) {
 Character::Character(Character const & src) {
 	_name = src.getName();
 	for (int i = 0; i < 4; i++)
-		_materia[i] = src._materia[i];
+		if (_materia[i] != NULL)
+			delete _materia[i];
+	for (int i = 0; i < 4; i++) {
+		if (src._materia[i] == NULL)
+			_materia[i] = NULL;
+		else
+			_materia[i] = src._materia[i]->clone();
+	}
 	std::cout << "Character " << getName() << " created with src" << std::endl;
 }
 
@@ -42,7 +49,7 @@ Character & Character::operator=(Character const & rhs) {
 		if (rhs._materia[i] == NULL)
 			_materia[i] = NULL;
 		else
-			_materia[i] = rhs._materia[i]->clone();
+			_materia[i] = rhs._materia[i]/*->clone()*/;
 	}
 	return *this;
 }
