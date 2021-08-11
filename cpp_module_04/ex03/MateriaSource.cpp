@@ -11,15 +11,14 @@ MateriaSource::MateriaSource() {
 }
 
 MateriaSource::MateriaSource(MateriaSource const & src) {
-	for (int i = 0; i < 4; i++)
-		_materia_source[i] = src._materia_source[i];
+	for (int i = 0; i < 4; i++) {
+		if (src._materia_source[i] == NULL)
+			_materia_source[i] = NULL;
+		else
+			_materia_source[i] = src._materia_source[i]->clone();
+	}
 	std::cout << "MateriaSource created with src" << std::endl;
 }
-
-/*Ice::Ice(std::string const & type) {
-	_type = type;
-	std::cout << "Ice created with type" << std::endl;
-}*/
 
 MateriaSource::~MateriaSource() {
 	for (int i = 0; i < 4; i++)
@@ -35,7 +34,14 @@ MateriaSource::~MateriaSource() {
 
 MateriaSource & MateriaSource::operator=(MateriaSource const & rhs) {
 	for (int i = 0; i < 4; i++)
-		_materia_source[i] = rhs._materia_source[i];
+		if (_materia_source[i] != NULL)
+			delete _materia_source[i];
+	for (int i = 0; i < 4; i++) {
+		if (rhs._materia_source[i] == NULL)
+			_materia_source[i] = NULL;
+		else
+			_materia_source[i] = rhs._materia_source[i]->clone();
+	}
 	return *this;
 }
 
@@ -64,7 +70,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 AMateria* MateriaSource::createMateria(std::string const & type) {
 	for (int i = 0; i < 4; i++) {
 		if (_materia_source[i] != NULL && _materia_source[i]->getType() == type) {
-			return (_materia_source[i]->clone());
+			return (_materia_source[i]);
 		}
 	}
 	return NULL;

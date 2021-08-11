@@ -21,6 +21,7 @@ int main()
 	ICharacter* bob = new Character("bob");
 	std::cout << "===========================================\n";
 	me->use(0, *bob);
+	me->use(0, *bob);
 	me->use(1, *bob);
 	me->use(2, *bob);
 	std::cout << "===========================================\n";
