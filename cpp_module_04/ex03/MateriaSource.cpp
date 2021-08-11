@@ -73,5 +73,6 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 			return (_materia_source[i]);
 		}
 	}
+	std::cout << "Materia type not found" << std::endl;
 	return NULL;
 }

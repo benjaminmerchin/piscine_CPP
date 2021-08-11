@@ -23,10 +23,16 @@ int main()
 	me->use(0, *bob);
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->unequip(0);
+	me->use(0, *bob);
 	me->use(2, *bob);
 	std::cout << "===========================================\n";
-	delete bob;
+	//ICharacter* me2 = me;
 	delete me;
+	//me2->use(0, *bob);
+	//std::cout << "===========================================\n";
+	delete bob;
+	//delete me2;
 	delete src;
 	return 0;
 }

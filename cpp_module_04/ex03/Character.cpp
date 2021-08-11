@@ -36,7 +36,14 @@ Character::~Character() {
 Character & Character::operator=(Character const & rhs) {
 	_name = rhs.getName();
 	for (int i = 0; i < 4; i++)
-		_materia[i] = rhs._materia[i];
+		if (_materia[i] != NULL)
+			delete _materia[i];
+	for (int i = 0; i < 4; i++) {
+		if (rhs._materia[i] == NULL)
+			_materia[i] = NULL;
+		else
+			_materia[i] = rhs._materia[i]->clone();
+	}
 	return *this;
 }
 
