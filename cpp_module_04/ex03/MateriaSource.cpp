@@ -22,6 +22,9 @@ MateriaSource::MateriaSource(MateriaSource const & src) {
 }*/
 
 MateriaSource::~MateriaSource() {
+	for (int i = 0; i < 4; i++)
+		if (_materia_source[i] != NULL)
+			delete _materia_source[i];
 	std::cout << "MateriaSource destructed" << std::endl;
 }
 
