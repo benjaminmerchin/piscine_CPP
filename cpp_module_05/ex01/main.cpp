@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 
 int main(void) {
-	
+
 	try {
 		Bureaucrat player0("player0", 1);
 	}
@@ -11,7 +11,7 @@ int main(void) {
 	catch (Bureaucrat::GradeTooHighException & e) {
 		std::cout << e.what() << std::endl;
 	}
-	try {
+	/*try {
 		player0.decrementGrade();
 	}
 	catch (Bureaucrat::GradeTooLowException & e) {
@@ -19,7 +19,7 @@ int main(void) {
 	}
 	catch (Bureaucrat::GradeTooHighException & e) {
 		std::cout << e.what() << std::endl;
-	}
+	}*/
 
 
 

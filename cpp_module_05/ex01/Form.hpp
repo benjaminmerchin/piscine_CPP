@@ -1,8 +1,7 @@
 #ifndef Form_HPP
 # define Form_HPP
 
-# include <iostream>
-# include <stdexcept>
+# include "Bureaucrat.hpp"
 
 class Form {
 public:
@@ -34,9 +33,7 @@ public:
 	int getRequiredSign() const;
 	int getRequiredExecute() const;
 
-
-	void incrementGrade();
-	void decrementGrade();
+	Form & beSigned(Bureaucrat const & b);
 
 private:
 	const std::string _name;

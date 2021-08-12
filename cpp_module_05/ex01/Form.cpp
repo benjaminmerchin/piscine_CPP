@@ -9,6 +9,10 @@ Form::Form() : _name("noName"), _required_execute(150), _required_sign(150), _si
 }
 
 Form::Form(std::string name, int required_execute, int required_sign) : _name(name), _required_execute(required_execute), _required_sign(required_sign), _sign(false) {
+	if (required_execute < 1 || required_sign < 1)
+		throw Form::GradeTooHighException();
+	if (required_execute > 150 || required_sign > 150)
+		throw Form::GradeTooLowException();
 	std::cout << "Form created with values" << std::endl;
 }
 
@@ -30,7 +34,7 @@ Form & Form::operator=(Form const & rhs) {
 }
 
 std::ostream & operator<<(std::ostream & o, Form const & src) {
-	o << src.getName() << ", is a Form with a signature: " << (src.getSigned()?"Yes":"No") << std::endl;
+	o << src.getName() << ", is a Form with a signature: " << (src.getSigned()?"Yes":"No") << ", req.sign:" << src.getRequiredSign() << ", req.exec:" << src.getRequiredExecute() << std::endl;
 	return o;
 }
 
@@ -47,3 +51,16 @@ int Form::getRequiredExecute() const {return _required_execute;}
 /* -------------------------------------------------- */
 /* ---------------- MEMBER FUNCTIONS ---------------- */
 /* -------------------------------------------------- */
+
+Form & Form::beSigned(Bureaucrat const & b) {
+	if (b.getGrade() < 1)
+		throw Bureaucrat::GradeTooHighException();
+	if (b.getGrade() > 150)
+		throw Bureaucrat::GradeTooLowException();
+	if (b.getGrade() <= getRequiredSign()) {
+		setSigned(true);
+	}
+	else
+		Form::GradeTooLowException();
+	return *this;
+}
