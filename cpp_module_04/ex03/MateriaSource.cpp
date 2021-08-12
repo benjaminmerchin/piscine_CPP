@@ -21,9 +21,12 @@ MateriaSource::MateriaSource(MateriaSource const & src) {
 }
 
 MateriaSource::~MateriaSource() {
-	for (int i = 0; i < 4; i++)
-		if (_materia_source[i] != NULL)
+	for (int i = 0; i < 4; i++) {
+		if (_materia_source[i] != NULL) {
 			delete _materia_source[i];
+			_materia_source[i] = NULL;
+		}
+	}
 	std::cout << "MateriaSource destructed" << std::endl;
 }
 
@@ -33,9 +36,12 @@ MateriaSource::~MateriaSource() {
 
 
 MateriaSource & MateriaSource::operator=(MateriaSource const & rhs) {
-	for (int i = 0; i < 4; i++)
-		if (_materia_source[i] != NULL)
+	for (int i = 0; i < 4; i++) {
+		if (_materia_source[i] != NULL) {
 			delete _materia_source[i];
+			_materia_source[i] = NULL;
+		}
+	}
 	for (int i = 0; i < 4; i++) {
 		if (rhs._materia_source[i] == NULL)
 			_materia_source[i] = NULL;
@@ -70,7 +76,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 AMateria* MateriaSource::createMateria(std::string const & type) {
 	for (int i = 0; i < 4; i++) {
 		if (_materia_source[i] != NULL && _materia_source[i]->getType() == type) {
-			return (_materia_source[i]);
+			return (_materia_source[i]->clone());
 		}
 	}
 	std::cout << "Materia type not found" << std::endl;

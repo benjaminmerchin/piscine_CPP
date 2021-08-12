@@ -20,9 +20,6 @@ Character::Character(std::string const name) {
 
 Character::Character(Character const & src) {
 	_name = src.getName();
-	for (int i = 0; i < 4; i++)
-		if (_materia[i] != NULL)
-			delete _materia[i];
 	for (int i = 0; i < 4; i++) {
 		if (src._materia[i] == NULL)
 			_materia[i] = NULL;
@@ -33,6 +30,12 @@ Character::Character(Character const & src) {
 }
 
 Character::~Character() {
+	for (int i = 0; i < 4; i++) {
+		if (_materia[i] != NULL) {
+			delete _materia[i];	
+			_materia[i] = NULL;
+		}
+	}
 	std::cout << "Character " << getName() << " destructed" << std::endl;
 }
 
@@ -42,14 +45,17 @@ Character::~Character() {
 
 Character & Character::operator=(Character const & rhs) {
 	_name = rhs.getName();
-	for (int i = 0; i < 4; i++)
-		if (_materia[i] != NULL)
+	for (int i = 0; i < 4; i++) {
+		if (_materia[i] != NULL) {
 			delete _materia[i];
+			_materia[i] = NULL;
+		}
+	}
 	for (int i = 0; i < 4; i++) {
 		if (rhs._materia[i] == NULL)
 			_materia[i] = NULL;
 		else
-			_materia[i] = rhs._materia[i]/*->clone()*/;
+			_materia[i] = rhs._materia[i]->clone();
 	}
 	return *this;
 }
