@@ -392,4 +392,59 @@ public:
 
 ## Module 5
 
-Nested Class
+Nested Class  
+Just a class inside a class.  
+```C++
+class Cat {
+public:
+    class Leg {
+          //[...]
+    };
+};
+
+int main() {
+	Cat somecat; // instantiate the Cat class
+	Cat::Leg somecatsleg; // instantiate the Leg class
+}
+```
+Exceptions  
+Manage errors properly, ty to not use them too much
+```C++
+#include <stdexcept>
+
+void test1() {
+	try {
+        // Do some stuff here
+        if (/*there is an error*/) {
+            throw std::exception();
+        }
+        else {
+        	// Do some more stuff
+        }
+    }
+	catch (std::exception e) {
+	    // handle the error here
+    }
+}
+
+void test4() {
+    class PEBKACException: public std::exception { // Clean way to handle eceptions
+    	public:
+    	    virtual const char* what() const throw() {
+                return ("Problem exists between keyboard and chair");
+            }
+    };
+
+    try {
+    	test3();
+    }
+    catch (PEBKACException& e) { // specific catch
+    	// handle the fact that the user did something stupid
+    }
+    catch (std::exception& e) { // generic catch
+    	// handle other exceptions that are like std::exception
+    }
+}
+```
+
+## Module 6
