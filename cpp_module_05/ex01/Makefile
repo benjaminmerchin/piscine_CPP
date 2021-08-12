@@ -1,7 +1,7 @@
 NAME	=	a.out
 CC		=	clang++
 OBJDIR	=	objects
-SRC		=	main.cpp Bureaucrat.cpp
+SRC		=	main.cpp Bureaucrat.cpp Form.cpp
 OBJ 	=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 CFLAGS	=	-Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98 -g3
 

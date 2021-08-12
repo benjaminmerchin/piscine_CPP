@@ -3,20 +3,22 @@
 
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
 public:
 
 	class GradeTooHighException: public std::exception {
 		public:
 			virtual const char* what() const throw() {
-				return ("Grade too high");
+				return ("Form: Grade too high");
 			}
 	};
 
 	class GradeTooLowException: public std::exception{
 		public:
 			virtual const char* what() const throw() {
-				return ("Grade too Low");
+				return ("Form: Grade too Low");
 			}
 	};
 

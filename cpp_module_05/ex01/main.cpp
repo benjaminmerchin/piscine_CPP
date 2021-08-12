@@ -2,31 +2,24 @@
 
 int main(void) {
 
-	try {
-		Bureaucrat player0("player0", 1);
-	}
-	catch (Bureaucrat::GradeTooLowException & e) {
-		std::cout << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException & e) {
-		std::cout << e.what() << std::endl;
-	}
-	/*try {
-		player0.decrementGrade();
-	}
-	catch (Bureaucrat::GradeTooLowException & e) {
-		std::cout << e.what() << std::endl;
-	}
-	catch (Bureaucrat::GradeTooHighException & e) {
-		std::cout << e.what() << std::endl;
-	}*/
-
-
-
+	Bureaucrat player1("player1", 1);
 	Bureaucrat player2("player2", 150);
-	Bureaucrat player3("player3", 1);
+	Form certificate("CPP05", 50, 50);
 
+	std::cout << "===========================================\n";
 
+	try {
+		player2.signForm(certificate);
+	}
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		player1.signForm(certificate);
+	}
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
 
-	std::cout << player3;
+	std::cout << "===========================================\n";
 }
