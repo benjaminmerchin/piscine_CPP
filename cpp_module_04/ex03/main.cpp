@@ -16,6 +16,7 @@ int main()
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	me->equip(src->createMateria("cure"));//
 	tmp = src->createMateria("random");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
@@ -36,8 +37,8 @@ int main()
 	b.use(1, *bob);
 	std::cout << "===========================================\n";
 	delete bob;
-	delete me;
 	delete src;
+	delete me;
 	return 0;
 }
 

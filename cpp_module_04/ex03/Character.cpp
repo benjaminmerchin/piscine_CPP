@@ -81,7 +81,7 @@ void Character::use(int idx, ICharacter& target) {
 }
 
 void Character::equip(AMateria* m) {
-	int index_to_equip = - 1;
+	int index_to_equip = -1;
 	for (int i = 0; i < 4; i++) {
 		if (_materia[i] == NULL)
 			if (index_to_equip == -1)
@@ -95,9 +95,10 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::unequip(int idx) {
-	if (idx < 0 || idx > 3) {
+	if (idx < 0 || idx > 3 || _materia[idx] == NULL) {
 		std::cout << "Invalide index, unequip not possible" << std::endl;
 		return ;
 	}
+	delete _materia[idx];
 	_materia[idx] = NULL;
 }
