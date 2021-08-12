@@ -76,7 +76,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 AMateria* MateriaSource::createMateria(std::string const & type) {
 	for (int i = 0; i < 4; i++) {
 		if (_materia_source[i] != NULL && _materia_source[i]->getType() == type) {
-			return (_materia_source[i]->clone());
+			return (_materia_source[i]);
 		}
 	}
 	std::cout << "Materia type not found" << std::endl;
