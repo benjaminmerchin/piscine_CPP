@@ -14,10 +14,10 @@ int main()
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	/*tmp = src->createMateria("cure");
+	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	tmp = src->createMateria("random");
-	me->equip(tmp);*/
+	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	std::cout << "===========================================\n";
 	me->use(0, *bob);
