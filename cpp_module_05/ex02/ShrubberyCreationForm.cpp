@@ -24,8 +24,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 /* -------------------- OPERATOR -------------------- */
 /* -------------------------------------------------- */
 
-ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & rhs) {
-	_sign = rhs.getSigned();
+ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & rhs) : Form(rhs) {
 	return *this;
 }
 

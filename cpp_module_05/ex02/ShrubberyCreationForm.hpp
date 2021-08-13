@@ -3,11 +3,14 @@
 
 # include "ShrubberyCreationForm.hpp"
 
-class ShrubberyCreationForm : public ShrubberyCreationForm {
+class ShrubberyCreationForm : public Form {
+public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(ShrubberyCreationForm const & src);
 	~ShrubberyCreationForm();
 	ShrubberyCreationForm & operator=(ShrubberyCreationForm const & rhs);
+
+	void execute(Bureaucrat const & executor) const;
 };
 
 #endif
