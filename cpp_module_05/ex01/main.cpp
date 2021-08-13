@@ -8,6 +8,10 @@ int main(void) {
 
 	std::cout << "===========================================\n";
 
+	std::cout << certificate;
+
+	std::cout << "===========================================\n";
+
 	try {
 		player2.signForm(certificate);
 	}
@@ -20,6 +24,10 @@ int main(void) {
 	catch (std::exception & e) {
 		std::cout << e.what() << std::endl;
 	}
+
+	std::cout << "===========================================\n";
+
+	std::cout << certificate;
 
 	std::cout << "===========================================\n";
 }

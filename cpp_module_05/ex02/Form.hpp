@@ -36,6 +36,7 @@ public:
 	int getRequiredExecute() const;
 
 	Form & beSigned(Bureaucrat const & b);
+	virtual void execute(Bureaucrat const & executor) const = 0;
 
 private:
 	const std::string _name;
