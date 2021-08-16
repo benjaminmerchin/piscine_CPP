@@ -22,6 +22,13 @@ public:
 			}
 	};
 
+	class FormNotSignedException: public std::exception{
+		public:
+			virtual const char* what() const throw() {
+				return ("Form: Not Signed");
+			}
+	};
+
 	Form();
 	Form(std::string name, int required_execute, int required_sign);
 	Form(Form const & src);
@@ -37,6 +44,7 @@ public:
 
 	Form & beSigned(Bureaucrat const & b);
 	virtual void execute(Bureaucrat const & executor) const = 0;
+	void checkBeforeExecute(Bureaucrat const & executor) const;
 
 private:
 	const std::string _name;

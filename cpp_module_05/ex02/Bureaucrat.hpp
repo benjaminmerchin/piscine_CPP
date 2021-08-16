@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <stdexcept>
+# include <fstream>
 # include "Form.hpp"
 
 class Form;
@@ -38,6 +39,7 @@ public:
 	void incrementGrade();
 	void decrementGrade();
 	void signForm(Form & f);
+	void executeForm(Form const & form);
 
 private:
 	std::string _name;

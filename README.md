@@ -447,4 +447,23 @@ void test4() {
 }
 ```
 
+Create a file and put text inside
+```C++
+int main()
+{
+    std::string filename("output.txt");
+    fstream output_fstream;
+
+    output_fstream.open(filename, std::ios_base::out);
+    if (!output_fstream.is_open()) {
+        std::cerr << "Failed to open " << filename << '\n';
+    } else {
+        output_fstream << "Maecenas accumsan purus id \norci gravida pellentesque." << std::endl;
+        std::cerr << "Done Writing!" << std::endl;
+    }
+
+    return 0;
+}
+```
+
 ## Module 6

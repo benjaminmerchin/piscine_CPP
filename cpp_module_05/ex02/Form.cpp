@@ -64,3 +64,12 @@ Form & Form::beSigned(Bureaucrat const & b) {
 		throw Form::GradeTooLowException();
 	return *this;
 }
+
+void Form::checkBeforeExecute(Bureaucrat const & executor) const {
+	if (!getSigned()) {
+		throw Form::FormNotSignedException();
+		return ;
+	}
+	if (executor.getGrade() > getRequiredExecute())
+		throw Form::GradeTooLowException();
+}
