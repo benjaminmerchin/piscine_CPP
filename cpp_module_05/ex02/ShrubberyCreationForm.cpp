@@ -4,11 +4,16 @@
 /* ------------ CONSTRUCTOR / DESTRUCTOR ------------ */
 /* -------------------------------------------------- */
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 137, 145) {
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 137, 145), _target("noTarget") {
 	std::cout << "ShrubberyCreationForm created with default constructor" << std::endl;
 }
 
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm", 137, 145), _target(target) {
+	std::cout << "ShrubberyCreationForm created with target" << std::endl;
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src) : Form(src) {
+	_target = src.getTarget();
 	std::cout << "ShrubberyCreationForm created with src constructor" << std::endl;
 }
 
@@ -22,12 +27,16 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm const & rhs) {
 	setSigned(rhs.getSigned());
+	_target = rhs.getTarget();
 	return *this;
 }
 
 /* -------------------------------------------------- */
 /* --------------- GETTERS / SETTERS ---------------- */
 /* -------------------------------------------------- */
+
+std::string ShrubberyCreationForm::getTarget() const {return _target;}
+void ShrubberyCreationForm::setTarget(std::string const target) {_target = target;}
 
 /* -------------------------------------------------- */
 /* ---------------- MEMBER FUNCTIONS ---------------- */
@@ -43,7 +52,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 		return ;
 	}
 	
-	std::string filename(executor.getName() + "_shrubbery");
+	std::string filename(_target + "_shrubbery");
 	std::fstream output_fstream;
 	output_fstream.open(filename, std::ios_base::out);
 	if (!output_fstream.is_open()) {

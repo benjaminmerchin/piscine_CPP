@@ -8,8 +8,8 @@ int main(void) {
 	{
 		Bureaucrat player1("player1", 1);
 		Bureaucrat player2("player2", 140);
-		ShrubberyCreationForm certificate;
-		ShrubberyCreationForm contract;
+		ShrubberyCreationForm certificate("Jan");
+		ShrubberyCreationForm contract("Jan");
 
 		std::cout << "===========================================\n";
 
@@ -41,8 +41,8 @@ int main(void) {
 	{
 		Bureaucrat player1("player1", 1);
 		Bureaucrat player3("player3", 50);
-		RobotomyRequestForm certificate;
-		RobotomyRequestForm contract;
+		RobotomyRequestForm certificate("Jon");
+		RobotomyRequestForm contract("Jon");
 
 		std::cout << "===========================================\n";
 
@@ -74,8 +74,8 @@ int main(void) {
 	{
 		Bureaucrat player1("player1", 1);
 		Bureaucrat player4("player4", 10);
-		PresidentialPardonForm certificate;
-		PresidentialPardonForm contract;
+		PresidentialPardonForm certificate("Jim");
+		PresidentialPardonForm contract("Jim");
 
 		std::cout << "===========================================\n";
 

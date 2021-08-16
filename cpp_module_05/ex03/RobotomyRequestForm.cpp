@@ -4,11 +4,16 @@
 /* ------------ CONSTRUCTOR / DESTRUCTOR ------------ */
 /* -------------------------------------------------- */
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 45, 72) {
+RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 45, 72), _target("noTarget") {
 	std::cout << "RobotomyRequestForm created with default constructor" << std::endl;
 }
 
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 45, 72), _target(target) {
+	std::cout << "RobotomyRequestForm created with target" << std::endl;
+}
+
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src) : Form(src) {
+	_target = src.getTarget();
 	std::cout << "RobotomyRequestForm created with src constructor" << std::endl;
 }
 
@@ -22,12 +27,16 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 
 RobotomyRequestForm & RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs) {
 	setSigned(rhs.getSigned());
+	_target = rhs.getTarget();
 	return *this;
 }
 
 /* -------------------------------------------------- */
 /* --------------- GETTERS / SETTERS ---------------- */
 /* -------------------------------------------------- */
+
+std::string RobotomyRequestForm::getTarget() const {return _target;}
+void RobotomyRequestForm::setTarget(std::string const target) {_target = target;}
 
 /* -------------------------------------------------- */
 /* ---------------- MEMBER FUNCTIONS ---------------- */
@@ -47,8 +56,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	int random_variable = std::rand();
 	std::cout << "TAK TAK TAK TAK TAK ";
 	if (random_variable%2==0) {
-		std::cout << executor.getName() << " was successfully robotomized\n";
+		std::cout << _target << " was successfully robotomized\n";
 	}
 	else
-		std::cout << executor.getName() << " failed to robotomize\n";
+		std::cout << _target << " failed to robotomize\n";
 }

@@ -2,105 +2,39 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main(void) {
-	std::cout << "===============ShrubberyCreationForm===============\n";
-	{
-		Bureaucrat player1("player1", 1);
-		Bureaucrat player2("player2", 140);
-		ShrubberyCreationForm certificate;
-		ShrubberyCreationForm contract;
+	Intern someRandomIntern;
+	Form* rrf;
 
-		std::cout << "===========================================\n";
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	/*Bureaucrat player1("player1", 1);
+	Bureaucrat player2("player2", 140);
+	ShrubberyCreationForm certificate;
+	ShrubberyCreationForm contract;
 
-		player1.executeForm(certificate);
+	std::cout << "===========================================\n";
 
-		try {
-			player1.signForm(certificate);
-		}
-		catch (std::exception & e) {
-			std::cout << e.what() << std::endl;
-		}
+	player1.executeForm(certificate);
 
-		player1.executeForm(certificate);
-		
-		std::cout << "===========================================\n";
-
-		try {
-			player2.signForm(contract);
-		}
-		catch (std::exception & e) {
-			std::cout << e.what() << std::endl;
-		}
-
-		player2.executeForm(contract);
-
-		std::cout << "===========================================\n";
+	try {
+		player1.signForm(certificate);
 	}
-	std::cout << "===============RobotomyRequestForm===============\n";
-	{
-		Bureaucrat player1("player1", 1);
-		Bureaucrat player3("player3", 50);
-		RobotomyRequestForm certificate;
-		RobotomyRequestForm contract;
-
-		std::cout << "===========================================\n";
-
-		player1.executeForm(certificate);
-
-		try {
-			player1.signForm(certificate);
-		}
-		catch (std::exception & e) {
-			std::cout << e.what() << std::endl;
-		}
-
-		player1.executeForm(certificate);
-		
-		std::cout << "===========================================\n";
-
-		try {
-			player3.signForm(contract);
-		}
-		catch (std::exception & e) {
-			std::cout << e.what() << std::endl;
-		}
-
-		player3.executeForm(contract);
-
-		std::cout << "===========================================\n";
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
 	}
-	std::cout << "===============PresidentialPardonForm===============\n";
-	{
-		Bureaucrat player1("player1", 1);
-		Bureaucrat player4("player4", 10);
-		PresidentialPardonForm certificate;
-		PresidentialPardonForm contract;
 
-		std::cout << "===========================================\n";
+	player1.executeForm(certificate);
+	
+	std::cout << "===========================================\n";
 
-		player1.executeForm(certificate);
-
-		try {
-			player1.signForm(certificate);
-		}
-		catch (std::exception & e) {
-			std::cout << e.what() << std::endl;
-		}
-
-		player1.executeForm(certificate);
-		
-		std::cout << "===========================================\n";
-
-		try {
-			player4.signForm(contract);
-		}
-		catch (std::exception & e) {
-			std::cout << e.what() << std::endl;
-		}
-
-		player4.executeForm(contract);
-
-		std::cout << "===========================================\n";
+	try {
+		player2.signForm(contract);
 	}
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+
+	player2.executeForm(contract);*/
 }
