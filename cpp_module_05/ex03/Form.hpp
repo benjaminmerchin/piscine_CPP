@@ -32,7 +32,7 @@ public:
 	Form();
 	Form(std::string name, int required_execute, int required_sign);
 	Form(Form const & src);
-	~Form();
+	virtual ~Form();
 	Form & operator=(Form const & rhs);
 
 	std::string getName() const;

@@ -8,7 +8,9 @@ int main(void) {
 	Intern someRandomIntern;
 	Form* rrf;
 
+	//rrf = someRandomIntern.makeForm("PomPom", "Bender");
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	//delete rrf;
 	/*Bureaucrat player1("player1", 1);
 	Bureaucrat player2("player2", 140);
 	ShrubberyCreationForm certificate;

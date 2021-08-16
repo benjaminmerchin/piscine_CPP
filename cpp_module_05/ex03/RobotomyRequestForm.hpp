@@ -1,7 +1,6 @@
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
-# include "RobotomyRequestForm.hpp"
 # include "Form.hpp"
 
 class RobotomyRequestForm : public Form {
