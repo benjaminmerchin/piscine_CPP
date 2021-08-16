@@ -25,6 +25,13 @@ public:
 			}
 	};
 
+	class FailException: public std::exception{
+		public:
+			virtual const char* what() const throw() {
+				return ("Bureaucrat: Execution Failed");
+			}
+	};
+
 	Bureaucrat();
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat(Bureaucrat const & src);

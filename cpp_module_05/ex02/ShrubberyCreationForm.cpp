@@ -39,6 +39,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	}
 	catch (std::exception & e) {
 		std::cout << e.what() << " to execute" << std::endl;
+		throw Bureaucrat::FailException();
 		return ;
 	}
 	

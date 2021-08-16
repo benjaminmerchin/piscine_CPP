@@ -88,3 +88,14 @@ void Bureaucrat::signForm(Form & f) {
 	}
 	std::cout << getName() << " signs " << f.getName() << std::endl;
 }
+
+void Bureaucrat::executeForm(Form const & form) {
+	try {
+		form.execute(*this);
+	}
+	catch (std::exception & e) {
+		std::cout << e.what() << " to execute" << std::endl;;
+		return ;
+	}
+	std::cout << getName() << " executs " << form.getName() << std::endl;
+}
