@@ -467,3 +467,139 @@ int main()
 ```
 
 ## Module 6
+Casts  
+Static cast:
+```C++
+int main(void)
+{
+	int a = 42; // reference value
+
+	double b = a; // implicit promotion -> ok
+	int c = b; // implicit demotion -> no!
+	int d = static_cast<int>(b); // explicit demotion -> ok
+
+	return 0;
+}
+int main(void) // now with class
+{
+	Child1 a; // reference value
+
+	Parent * b = &a; // implicit upcast -> ok
+	Child1 * c = b; // implicit downcast -> no!
+	Child2 * d = static_cast<Child2 *>(b); // explicit downcast -> ok
+
+	Unrelated * e = static_cast<Unrelated *>(&a); // explicit conversion -> no!
+	// static_cast will make sure that the cast will happen within an inheritance tree
+	return 0;
+}
+```
+Dynamic cast: Very usefull, apply at the execution and not the compilation like the others  
+Only works with polymophism (at least one of the members functions might be virtual)
+```C++
+#include <iostream>
+#include <typeinfo> // This header defines types used related to operators typeid and dynamic_cast.
+#include <exception>
+
+class Parent {public: virtual ~Parent(void) {} };
+class Child1: public Parent {};
+class Child2: public Parent {};
+
+int main(void)
+{
+	Child1 a; // reference value
+	Parent * b = &a; // implicit upcast -> ok
+
+    // explicit downcast
+    Child1 * c = dynamic_cast<Child1 *>(b);
+    if (c = NULL) {
+    	std::cout << "Conversion is NOT okay" << std::endl;
+    }
+    else {
+	    std::cout << "Conversion is okay" << std::endl;
+    }
+
+    // explicit downcast
+    try {
+	    Child2 & d = dynamic_cast<Child2 &>(*b); // convert to a reference
+	    // it will fail because it casts to another
+	    // the reference can't be NULL by definition, so it needs another way
+	    // to handle the cast failure
+        std::cout << "Conversion is okay" << std::endl;
+    }
+    catch (std::bad_cast &bc){
+	    std::cout << "Conversion is NOT okay: " << bc.what() << std::endl;
+	    return 0;
+    }
+    return 0;
+}
+```
+Reingerpret cast:  
+```C++
+int main(void)
+{
+	float a = 420.042f; // reference value
+
+	void * b = &a; // implicit promotion -> ok
+	int * c = reinterpret_cast<int *>(b); // explicit demotion -> ok
+	// there will be no semantics checks, as the compiler will trust you
+	// they will reinterpret any address as the specified other type
+	int & d = reinterpret_cast<int &>(b); // explicit demotion -> ok
+
+	return 0;
+}
+```
+Const cast:  
+Try to never have to use this
+```C++
+int main(void)
+{
+	int a = 42; // reference value
+
+	int const * b = &a; // implicit promotion -> ok
+	// moving from a mutable value to a const is not a problem
+	int * c = b; // explicit demotion -> no!
+	int * d = const_cast<int *>(b); // explicit demotion -> ok
+}
+```
+Cast operators:  
+```C++
+class Foo {
+public:
+	Foo(Float const v) : _v(v) {}
+	operator float() {return this->_v;} // cast operator
+	operator int() {return static_cast<int>(this->_V);} // cast operator
+private:
+    float _v;
+};
+int main(void)
+{
+	Foo a(420.024f);
+	float b = a; // implicit cast from Foo to float
+	int c = a; // implicit cast from Foo to int
+    return 0;
+}
+```
+Explicit Keyword:  
+```C++
+Class A {};
+Class B {};
+
+Class C {
+public:
+			C(A const & _) {return ;}
+	explicit C(B const & _) {return ;} // will prevent implicit conversion of your instance class
+};
+
+void f(C const & _) {
+	return ;
+}
+
+int main(void)
+{
+	f(A()); // implicit conversion okay
+	f(B()); // implicit conversion not okay, constructor is explicit
+}
+```
+<!--
+-Wno-conversion: flag qui bloque les conversions Implicites avec pertes de precision
+-->
