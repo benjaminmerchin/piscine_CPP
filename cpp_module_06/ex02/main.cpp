@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <ctime>
 
 class Base {
 public:
@@ -44,21 +46,21 @@ void identify_from_reference( Base & p) {
 		std::cout << 'A';
 		(void)a;
 	}
-	catch (std::bad_cast &bc){;}
+	catch (...){;}
 
 	try {
 		B & b = dynamic_cast<B &>(p);
 		std::cout << 'B';
 		(void)b;
 	}
-	catch (std::bad_cast &bc){;}
+	catch (...){;}
 
 	try {
 		C & c = dynamic_cast<C &>(p);
 		std::cout << 'C';
 		(void)c;
 	}
-	catch (std::bad_cast &bc){;}
+	catch (...){;}
 }
 
 int main(void) {

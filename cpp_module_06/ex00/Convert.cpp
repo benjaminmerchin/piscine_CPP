@@ -53,7 +53,11 @@ int Convert::toInt() {
 	int i;
 
 	try {
-		i = static_cast<int>(std::stoi(_str.c_str()));
+		i = static_cast<int>(std::strtod(_str.c_str(), NULL));
+		if (i < -2147483647 || i > 2147483646) {
+			throw Convert::impossibleException();
+			return 0;
+		}
 		return i;
 	}
 	catch (std::invalid_argument& e) {
@@ -70,7 +74,7 @@ float Convert::toFloat() {
 	float f;
 
 	try {
-		f = static_cast<float>(std::stof(_str.c_str()));
+		f = static_cast<float>(std::strtof(_str.c_str(), NULL));
 		return f;
 	}
 	catch (std::invalid_argument& e) {
@@ -87,7 +91,7 @@ double Convert::toDouble() {
 	double d;
 
 	try {
-		d = static_cast<double>(std::stod(_str.c_str()));
+		d = static_cast<double>(std::strtod(_str.c_str(), NULL));
 		return d;
 	}
 	catch (std::invalid_argument& e) {

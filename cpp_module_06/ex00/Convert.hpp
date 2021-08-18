@@ -3,6 +3,8 @@
 
 # include <iostream>
 # include <iomanip>
+# include <string>
+# include <stdlib.h>
 
 class Convert {
 public:

@@ -1,4 +1,4 @@
-NAME	=	convert
+NAME	=	a.out
 CC		=	clang++
 OBJDIR	=	objects
 SRC		=	main.cpp
