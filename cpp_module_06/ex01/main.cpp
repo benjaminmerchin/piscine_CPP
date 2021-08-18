@@ -23,5 +23,6 @@ int main(void) {
 	std::cout << "Address_serialized: " << addr_temp << std::endl;
 	Data * addr_recovered = deserialize(addr_temp);
 	std::cout << "Address_recovered:  " << addr_recovered << "    Value_Stored: " << addr_recovered->n << std::endl;
+	delete addr;
 	return 0;
 }
