@@ -526,7 +526,7 @@ int main(void)
 	    // to handle the cast failure
         std::cout << "Conversion is okay" << std::endl;
     }
-    catch (std::bad_cast &bc){
+    catch (std::bad_cast &bc){ // possible to do catch (...) : super usefull can catch anything!
 	    std::cout << "Conversion is NOT okay: " << bc.what() << std::endl;
 	    return 0;
     }

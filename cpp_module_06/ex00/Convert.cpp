@@ -54,7 +54,7 @@ int Convert::toInt() {
 
 	try {
 		i = static_cast<int>(std::strtod(_str.c_str(), NULL));
-		if (i < -2147483647 || i > 2147483646) {
+		if (i <= -2147483648 || i >= 2147483647) {
 			throw Convert::impossibleException();
 			return 0;
 		}
