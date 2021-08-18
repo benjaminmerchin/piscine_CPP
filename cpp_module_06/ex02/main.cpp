@@ -70,4 +70,6 @@ int main(void) {
 	std::cout << "identify_from_reference: ";
 	identify_from_pointer(example);
 	std::cout << std::endl;
+
+	delete example;
 }
