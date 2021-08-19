@@ -605,3 +605,43 @@ int main(void)
 ## Module 7
 
 Tempates  
+```C++
+template<typename T> // tell the compiler that we're writing a template
+T const & max(T const & x, T const & y) { // use the address and not a copy will save space
+	return (x >= y? x : y); // apart from a scala type, it could also used with instances of class if they've implemented the operator overload
+}
+int foo(int x) {
+	std::cout << "Long computing time" << std::endl;
+	return x;
+}
+int main(void)
+{
+	int a = 21;
+	int b = 42;
+	std::cout << max<int>(a, b) << std::endl; // explicit instantiation -> this is preferred
+    std::cout << max(a, b) << std::endl; // implicit instantiation -> it might not work for complex classes
+    int ret = max<int>(foo(a), foo(b)); // explicit instantiation -> it will not be macros but actual functions, which are written by the compiler. So foo(a) and foo(b) will only be run once, and the results will be passed as parameters
+
+	return 0;
+}
+```
+Template also works with classes!
+```C++
+template<typename T>
+class List { 
+public:
+    List<T>(T const & content) {
+    	// etc...
+    }
+    List<T>(List<T> const & list) {
+    	//etc...
+    }
+    ~List<T>(void) {
+        //etc...
+    }
+    //etc...
+private:
+	T * _content; // it works the same without *
+    List<T> * _next;
+};
+```
