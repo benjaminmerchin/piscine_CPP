@@ -600,6 +600,8 @@ int main(void)
 	f(B()); // implicit conversion not okay, constructor is explicit
 }
 ```
-<!--
--Wno-conversion: flag qui bloque les conversions Implicites avec pertes de precision
--->
+-Wno-conversion: flag blocking implicit conversions with precision losses
+
+## Module 7
+
+Tempates  

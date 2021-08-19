@@ -27,7 +27,7 @@ Base * generate(void) {
 }
 
 //affiche "A", "B" ou "C" selon le type réel de p.
-void identify_from_pointer(Base * p) {
+void identify(Base * p) {
 	A * a = dynamic_cast<A *>(p);
 	B * b = dynamic_cast<B *>(p);
 	C * c = dynamic_cast<C *>(p);
@@ -40,7 +40,7 @@ void identify_from_pointer(Base * p) {
 }
 
 //affiche "A", "B" ou "C" selon le type réel de p.
-void identify_from_reference( Base & p) {
+void identify( Base & p) {
 	try {
 		A & a = dynamic_cast<A &>(p);
 		std::cout << 'A';
@@ -66,11 +66,12 @@ void identify_from_reference( Base & p) {
 int main(void) {
 	Base * example = generate();
 	std::cout << "identify_from_pointer:   ";
-	identify_from_pointer(example);
+	identify(example);
 	std::cout << std::endl;
 
+	Base & exampleREF = *example;
 	std::cout << "identify_from_reference: ";
-	identify_from_pointer(example);
+	identify(exampleREF);
 	std::cout << std::endl;
 
 	delete example;
