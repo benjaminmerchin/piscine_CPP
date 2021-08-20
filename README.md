@@ -712,28 +712,6 @@ std::ostream & operator<<(std::ostream & o, Pair<bool, bool> const & p) {
 }
 ```
 
-
-
-One last video missing here
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Module 8
 
 STL  
