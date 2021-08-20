@@ -1,7 +1,7 @@
 # Piscine CPP
 9 modules with progressives exercises to learn C++  
-[There is plenty of CPP tutorial videos on the intranet (in french)](https://elearning.intra.42.fr/tags/38/notions)  
-[Great Wiki for the piscine](https://github.com/qingqingqingli/CPP/wiki/)  
+[There is plenty of CPP tutorial videos on the intranet](https://elearning.intra.42.fr/tags/38/notions)  
+[Great Wiki for the piscine at 42 where I took lots of code to do this page](https://github.com/qingqingqingli/CPP/wiki/)  
 
 
 ## Module 0
@@ -627,7 +627,7 @@ int main(void)
 ```
 Template also works with classes!
 ```C++
-template<typename T>
+template<typename T = int> //default type is int here
 class List { 
 public:
     List<T>(T const & content) {
@@ -641,7 +641,158 @@ public:
     }
     //etc...
 private:
+	List<T>(); // default constructor in private means we can't create it without parameters
 	T * _content; // it works the same without *
     List<T> * _next;
 };
+
+template<typename T>
+std::ostream & operator<<(std::ostream & o, Vertex<T> const & v) {
+	std::cout.precision(1);
+	o << setiosflag(std::ios::fixed);
+	o << "Vertex( " << v.getX() << ", " << v.getY() << ", " << v.getZ() << " )";
+	return o;
+}
+//Vertex<> v2(12, 23, 34); // 12, 23, 34 will be implicitly converted to the Vertex class template default type
 ```
+  
+Specialization
+```C++
+//Generic Template
+template <typename T, typename U>
+class Pair {
+public:
+	Pair<T, U>(T const & lhs, T const & rhs) : _lhs(lhs), _rhs(rhs) {
+		std::cout << "Generic template" << std::endl;
+		return;
+	}
+	~Pair<T, U>(void) {}
+	T const & fst(void) const {return this->lhs;}
+    U const & snd(void) const {return this->rhs;}
+private:
+	T const & _lhs;
+    U const & _rhs;
+    Pair<T, U>(void);
+};
+
+//Partial Specialization
+template <typename U>
+class Pair<int, U> { // syntax is different here
+    Pair<int, U>(void);
+	//etc...
+};
+
+//Full Specialization
+template <> //here we can save memory space in case the user use 2 bool
+class Pair<bool, bool> { // syntax is different here
+public:
+    Pair<bool, bool>(bool lhs, bool rhs) : _lhs(lhs), _rhs(rhs) {
+        std::cout << "bool/ bool full specialization" << std::endl;
+        this->_n = 0;
+        this->_n |= static_cast<int>(lhs) << 0; // the first bit
+		this->_n |= static_cast<int>(rhs) << 1; // the second bit
+        return;
+    }
+    ~Pair<bool, bool>(void) {}
+	bool fst(void) const {return (this->_n & 0x01);}
+	bool snd(void) const {return (this->_n & 0x02);}
+private:
+    int     _n;
+    Pair<bool, bool>(void);
+};
+
+template<typename T, typename U>
+std::ostream & operator<<(std::ostream & o, Pair<T, U> const & p) {
+    o << "Pari(" << p.fst() << ", " << p.snd() << " )";
+    return o;
+}
+std::ostream & operator<<(std::ostream & o, Pair<bool, bool> const & p) {
+    o << std::boolalpha << "Pari(" << p.fst() << ", " << p.snd() << " )"; // std::boolalpha will print true/false instead of 1 / 0
+	return o;
+}
+```
+
+
+
+One last video missing here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Module 8
+
+STL  
+```C++
+#include <iostream>
+#include <map>
+#include <vector>
+#include <list>
+
+class IOperation;
+
+int main()
+{
+	std::list<int>  lst1;
+	std::map<std::string, IOperation*>  map1; //first element, here string, is used as index
+	std::vector<int>    v1; // array to contain what we need
+	std::vector<int>    v2(42, 100); //42 entry containing 100
+
+	lst1.push_back(1);
+	lst1.push_back(17);
+	lst1.push_back(42);
+
+	map1["opA"] = new OperationA;
+	map1["opB"] = new OperationB;
+
+	std::list<int>::const_iterator  it; // STL iterator works almost the same way as a pointer
+	std::list<int>::const_iterator  ite = lst1.end(); // lst1.end is not the last element. It's a value that we can compare to that means that we are over the last element
+
+	for (it = lst1.begin(); it != ite; ++it)
+    {
+		std::cout << *it << std::endl;
+    }
+	return 0;
+}
+```
+```C++
+#include <iostream>
+#include <algorithm>
+#include <list>
+
+void displayInt(int i) {
+	std::cout << i << std::endl;
+}
+
+int main()
+{
+	std::list<int>  lst;
+
+	lst.pushback(10);
+	lst.pushback(23);
+	lst.pushback(3);
+	lst.pushback(17);
+	lst.pushback(20);
+
+	for_each(lst.begin(), lst.end(), displayInt);
+
+	return (0);
+}
+```
+
+advice : take 30 mn to read on the cpp websise the page explaining the existing algorythm 
+<!--Si jamais je me chauffe il y a plusieurs erreurs sur le wiki cpp07 dans les templates T & U & int-->

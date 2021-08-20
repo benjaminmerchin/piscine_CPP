@@ -37,6 +37,8 @@ public:
 	float toFloat();
 	double toDouble();
 
+	bool onlyDigit();
+
 private:
 	std::string _str;
 

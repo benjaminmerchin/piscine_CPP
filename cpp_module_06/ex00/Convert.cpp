@@ -41,8 +41,39 @@ void Convert::setStr(std::string const str) {_str = str;}
 /* ---------------- MEMBER FUNCTIONS ---------------- */
 /* -------------------------------------------------- */
 
+bool Convert::onlyDigit() {
+	bool res = true;
+	for (int i = 0; _str[i]; i++)
+		if (!(_str[i] >= '0' && _str[i] <= '9') && _str[i] != '.' && _str[i] != 'f' && _str[i] != '-')
+			res = false;
+	return res;
+}
+
 char Convert::toChar() {
-	char c = static_cast<char>(this->toInt());
+	if (onlyDigit()) {
+		int i;
+		try {
+			i = toInt();
+		}
+		catch (std::exception & e) {
+			throw Convert::impossibleException();
+			return 0;
+		}
+		if (i < 0 || i > 127) {
+			throw Convert::impossibleException();
+			return 0;
+		}
+		if (i < ' ' || i > '~') {
+			throw Convert::nonDisplayableException();
+			return 0;
+		}
+		return static_cast<char>(i);
+	}
+	if (_str.length() > 1) {
+		throw Convert::impossibleException();
+		return 0;
+	}
+	char c = static_cast<char>(_str[0]);
 	if (c < ' ' || c > '~') {
 		throw Convert::nonDisplayableException();
 	}
