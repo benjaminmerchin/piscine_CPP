@@ -26,7 +26,9 @@ int main(void) {
 		Array <std::string> arr_str2(4);
 
 		for (int i = 0; i < 5; i++) {
-			arr_str1[i] = std::to_string(i);
+			std::string s = "0";
+			s[0] += i;
+			arr_str1[i] = s;
 		}
 		arr_str2 = arr_str1;
 		std::cout << arr_str1[4] << std::endl;
@@ -42,12 +44,3 @@ int main(void) {
 	
 	return 0;
 }
-
-/*
-
-
-int tab = ne
-
-
-
-*/
