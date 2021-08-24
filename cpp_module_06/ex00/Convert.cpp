@@ -81,15 +81,15 @@ char Convert::toChar() {
 }
 
 int Convert::toInt() {
-	int i;
+	double i;
 
 	try {
-		i = static_cast<int>(std::strtod(_str.c_str(), NULL));
+		i = static_cast<double>(std::strtod(_str.c_str(), NULL));
 		if (i <= -2147483648 || i >= 2147483647) {
 			throw Convert::impossibleException();
 			return 0;
 		}
-		return i;
+		return static_cast<int>(i);
 	}
 	catch (std::invalid_argument& e) {
 		throw Convert::impossibleException();

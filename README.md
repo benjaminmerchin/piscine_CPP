@@ -772,5 +772,7 @@ int main()
 }
 ```
 
+[C++ - Template class array](https://www.youtube.com/watch?v=ApxgxAwzQBw&ab_channel=SurajSharma), perfect for cpp08ex02  
+  
 advice : take 30 mn to read on the cpp websise the page explaining the existing algorythm 
 <!--Si jamais je me chauffe il y a plusieurs erreurs sur le wiki cpp07 dans les templates T & U & int-->

@@ -1,12 +1,53 @@
 #include "Array.hpp"
 
 int main(void) {
-	int * a = new int();
+	std::cout << "====================int====================" << std::endl;
+	{
+		Array <int> arr1(5);
+		Array <int> arr2(4);
 
-	std::cout << *a << std::endl;
+		for (int i = 0; i < 5; i++) {
+			arr1[i] = i;
+		}
+		arr2 = arr1;
+		std::cout << arr1[4] << std::endl;
+		std::cout << arr2[4] << std::endl;
+		
+		try {
+			std::cout << arr2[10] << std::endl;
+		}
+		catch (std::exception & e) {
+			std::cout << e.what() << std::endl;
+		}
+	}
+	std::cout << "====================str====================" << std::endl;
+	{
+		Array <std::string> arr_str1(5);
+		Array <std::string> arr_str2(4);
+
+		for (int i = 0; i < 5; i++) {
+			arr_str1[i] = std::to_string(i);
+		}
+		arr_str2 = arr_str1;
+		std::cout << arr_str1[4] << std::endl;
+		std::cout << arr_str2[4] << std::endl;
+		
+		try {
+			std::cout << arr_str2[10] << std::endl;
+		}
+		catch (std::exception & e) {
+			std::cout << e.what() << std::endl;
+		}
+	}
 	
-	*a=1;
-
-	std::cout << *a << std::endl;
 	return 0;
 }
+
+/*
+
+
+int tab = ne
+
+
+
+*/
