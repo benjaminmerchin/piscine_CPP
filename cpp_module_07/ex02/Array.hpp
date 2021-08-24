@@ -15,7 +15,7 @@ public:
 	};
 
 	Array() : _arr(NULL), _size(0) {}
-	Array(unsigned int n) :  _arr(new T[n]), _size(n) {}
+	Array(unsigned int n) : _arr(new T[n]), _size(n) {}
 	Array(Array const & src) {
 		_size = src._size;
 		_arr = new T[_size];

@@ -711,6 +711,7 @@ std::ostream & operator<<(std::ostream & o, Pair<bool, bool> const & p) {
 	return o;
 }
 ```
+[C++ - Template class array](https://www.youtube.com/watch?v=ApxgxAwzQBw&ab_channel=SurajSharma), perfect for cpp07ex02  
 
 ## Module 8
 
@@ -741,12 +742,11 @@ int main()
 	std::list<int>::const_iterator  ite = lst1.end(); // lst1.end is not the last element. It's a value that we can compare to that means that we are over the last element
 
 	for (it = lst1.begin(); it != ite; ++it)
-    {
 		std::cout << *it << std::endl;
-    }
 	return 0;
 }
 ```
+Algorithm
 ```C++
 #include <iostream>
 #include <algorithm>
@@ -759,12 +759,9 @@ void displayInt(int i) {
 int main()
 {
 	std::list<int>  lst;
-
 	lst.pushback(10);
 	lst.pushback(23);
 	lst.pushback(3);
-	lst.pushback(17);
-	lst.pushback(20);
 
 	for_each(lst.begin(), lst.end(), displayInt);
 
@@ -772,7 +769,5 @@ int main()
 }
 ```
 
-[C++ - Template class array](https://www.youtube.com/watch?v=ApxgxAwzQBw&ab_channel=SurajSharma), perfect for cpp08ex02  
-  
 advice : take 30 mn to read on the cpp websise the page explaining the existing algorythm 
 <!--Si jamais je me chauffe il y a plusieurs erreurs sur le wiki cpp07 dans les templates T & U & int-->
