@@ -6,19 +6,39 @@
 
 class Span {
 public:
+
+	class StorageFullException: public std::exception {
+		public:
+			virtual const char* what() const throw() {
+				return ("The storage is full");
+			}
+	};
+
+	class NoSpanToFindException: public std::exception {
+		public:
+			virtual const char* what() const throw() {
+				return ("There is not enough numbers in the storage to have a span");
+			}
+	};
+
 	Span();
 	Span(unsigned int N);
 	Span(Span const & src);
 	~Span();
 	Span & operator=(Span const & src);
+	
+	void addNumber(int a);
+	unsigned int shortestSpan();
+	unsigned int longestSpan();
 
 private:
 	std::vector<int> _content;
+	unsigned int _N;
 };
 
 #endif
 
-//regarder vite fait les containers existants
+//regarder vite fait les containers existants OK
 //pour vector, regarder les fonctions existantes
 //rajouter juste la fonction getnumber
 
