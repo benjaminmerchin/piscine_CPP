@@ -26,7 +26,7 @@ public:
 	Span(Span const & src);
 	~Span();
 	Span & operator=(Span const & src);
-	
+
 	void addNumber(int a);
 	unsigned int shortestSpan();
 	unsigned int longestSpan();
@@ -37,10 +37,6 @@ private:
 };
 
 #endif
-
-//regarder vite fait les containers existants OK
-//pour vector, regarder les fonctions existantes
-//rajouter juste la fonction getnumber
 
 //pour le 02, faire une class qui herite d'un autre container
 //faire heriter directement dans la deff du container et dans les 2 constructeurs

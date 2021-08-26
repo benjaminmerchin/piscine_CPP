@@ -49,7 +49,7 @@ unsigned int Span::shortestSpan() {
 				span = static_cast<long>(abs(_content[i] - _content[j]));
 		}
 	}
-	return span;
+	return static_cast<unsigned int>(span);
 }
 
 unsigned int Span::longestSpan() {
