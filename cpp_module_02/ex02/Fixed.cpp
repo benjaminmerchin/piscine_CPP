@@ -134,6 +134,8 @@ Fixed const & Fixed::max(Fixed const & a, Fixed const & b) {
 	return (a < b ? b : a); //member
 }
 
+//yes, the difference between member and overload is not verry clear in the subject, I did not manage to test it and I think nobody else did
+
 Fixed & min(Fixed & a, Fixed & b) {
 	return (a < b ? a : b); //overload
 }

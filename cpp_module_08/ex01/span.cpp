@@ -39,6 +39,14 @@ void Span::addNumber(int a) {
 	_content.push_back(a);
 }
 
+void Span::addRangeNumber(int a, int b) {
+	long size = b - a;
+	if (_content.size() + abs(size) >= _N)
+		throw Span::StorageFullException();
+	for (int i = a; i <= b; i++)
+		_content.push_back(i);
+}
+
 unsigned int Span::shortestSpan() {
 	if (_content.size() <= 1)
 		throw Span::NoSpanToFindException();
