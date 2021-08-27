@@ -19,7 +19,7 @@ public:
 	Array(Array const & src) {
 		_size = src._size;
 		_arr = new T[_size];
-		for (int i =0; i < _size; i++)
+		for (unsigned int i =0; i < _size; i++)
 			_arr[i] = src._arr[i];
 	}
 	~Array() {delete [] _arr;}
