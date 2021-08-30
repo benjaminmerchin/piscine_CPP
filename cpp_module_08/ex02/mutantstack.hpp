@@ -5,23 +5,24 @@
 #include <stack>
 #include <algorithm>
 
+//I found this function on the ft_containers main
+
 template<typename T>
-class MutantStack : public std::stack<T> {
+class MutantStack : public std::stack<T>
+{
 public:
-	MutantStack() : std::stack<T>() {}
-	MutantStack(MutantStack const & src) : std::stack<T>(src) {}
-	virtual ~MutantStack() {}
-	MutantStack & operator=(const T& src) {
-		return std::stack<T>::operator=(src);
+	MutantStack() {}
+	MutantStack(const MutantStack<T>& src) { *this = src; }
+	~MutantStack() {}
+	MutantStack<T>& operator=(const MutantStack<T>& rhs) {
+		this->c = rhs.c;
+		return *this;
 	}
 
 	typedef typename std::stack<T>::container_type::iterator iterator;
-	typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
 
-	iterator begin(void) {return std::stack<T>::c.begin();}
-	iterator end(void) {return std::stack<T>::c.end();}
-	reverse_iterator rbegin(void) {return std::stack<T>::c.rbegin();}
-	reverse_iterator rend(void) {return std::stack<T>::c.rend();}
+	iterator begin() { return this->c.begin(); }
+	iterator end() { return this->c.end(); }
 };
 
 #endif
