@@ -8,8 +8,7 @@
 //I found this function on the ft_containers main
 
 template<typename T>
-class MutantStack : public std::stack<T>
-{
+class MutantStack : public std::stack<T> {
 public:
 	MutantStack() {}
 	MutantStack(const MutantStack<T>& src) { *this = src; }
